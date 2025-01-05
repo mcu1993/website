@@ -1,0 +1,38 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "lint": "eslint --fix --ext .js,.vue components"
+  },
+  "dependencies": {
+    "@ant-design/icons-vue": "^7.0.1",
+    "@pinia-plugin-persistedstate/nuxt": "^1.2.1",
+    "@pinia/nuxt": "^0.5.2",
+    "ant-design-vue": "^4.2.3",
+    "nuxt": "3.8.0",
+    "vue": "^3.4.31",
+    "vue-i18n": "^9.13.1",
+    "vue-router": "^4.3.0"
+  },
+  "devDependencies": {
+    "@ant-design-vue/nuxt": "^1.4.2",
+    "@nuxtjs/i18n": "^8.3.3",
+    "@urland/eslint-config": "^0.0.5",
+    "aos": "^2.3.4",
+    "less": "^4.2.0",
+    "typescript": "^5.5.4",
+    "unplugin-vue-components": "^0.27.3"
+  },
+  "overrides": {
+    "vue": "^3.4.31"
+  },
+  "resolutions": {
+    "vue": "^3.4.31"
+  }
+}

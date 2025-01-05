@@ -1,0 +1,10 @@
+{
+  "DEPLOY_NAMESPACE": "topode",
+  "DEPLOY_PROJECT_NAME": "topode_202007",
+  "DEPLOY_PROJECT_REPLICA_NAMES": "",
+  "DEPLOY_PROJECT_SERVICE_NAMES": "",
+  "DEPLOY_PROJECT_URL": "https://www.topode.com",
+  "DEPLOY_HELM_CHART": "topode-web-v2",
+  "DEPLOY_PROJECT_SETTING": "",
+  "DEPLOY_HELM_DEPLOY_ARGS": "--set replicaCount=3"
+}

@@ -1,0 +1,21 @@
+stages:
+  - build
+  - deploy
+
+deploy-pre:
+  stage: deploy
+  image: harbor.dev56.cn/base/alpine:v1
+  variables:
+    GIT_STRATEGY: none
+  script:
+    - curl -s ${PAAS_SCRIPT_EXECUTE_JOB_URL} | sh -s -- 287 ${CI_COMMIT_BRANCH}
+  only:
+    - test
+
+deploy-prod:
+  stage: deploy
+  image: harbor.dev56.cn/base/docker:latest
+  script:
+    - curl -s $PROD_K8S_DEPLOY_SCRIPT_URL|bash -s -- -e prod -f docker/deploy.json
+  only:
+    - api

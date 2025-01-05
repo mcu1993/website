@@ -146,7 +146,7 @@ const handleMenuClick = (key: string) => {
   .describe-container {
     height: 100%;
     display: grid;
-    grid-template-columns: 30% 20% 25% 25%;
+    grid-template-columns: 40% 20% 20% 20%;
     align-items: center;
     padding: 0 30px;
 

@@ -31,20 +31,6 @@
           </div>
         </div>
       </div>
-      <!-- <div
-        class="describe-gird"
-        data-aos="fade-up"
-        :data-aos-delay="300 + 4 * 100"
-      >
-        <div class="describe-item-box">
-          <div class="qr-code-box">
-            <img src="@/assets/home/qr_code.png" alt="" />
-          </div>
-          <div class="describe-item text-center">
-            {{ $t("footer.describe12") }}
-          </div>
-        </div>
-      </div> -->
     </div>
   </footer>
 
@@ -76,19 +62,10 @@
       </a-collapse>
     </div>
     <div class="footer-item-box">
-      <div class="describe-item">
-        {{ $t("footer.describe1") }}
-      </div>
       <div class="describe-item">{{ $t("footer.describe2") }}</div>
       <div class="describe-item">{{ $t("footer.describe3") }}</div>
       <div class="describe-item">{{ $t("footer.describe4") }}</div>
       <div class="describe-item">{{ $t("footer.describe5") }}</div>
-      <div class="img-item-box">
-        <div class="qr-code-box">
-          <img src="@/assets/home/qr_code.png" alt="" />
-        </div>
-        <div class="describe-item">{{ $t("footer.describe12") }}</div>
-      </div>
     </div>
   </div>
   <div class="record-number">

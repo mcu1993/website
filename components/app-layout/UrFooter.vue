@@ -77,7 +77,7 @@ import { computed, ref } from "vue";
 import { useRouter, useRoute } from "vue-router";
 
 const { t, locale } = useI18n();
-const activeKey = ref<string[]>(["1"]);
+const activeKey = ref<string[]>([""]);
 const tabs = [
   {
     name: t("header.productIntroduction"),
@@ -283,7 +283,8 @@ const handleMenuClick = (key: string) => {
   }
 
   .tabs-list {
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
   }
 
   .record-number {

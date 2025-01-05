@@ -16,20 +16,18 @@ export default {
     contactUs: "Contact Us",
   },
   footer: {
-    describe1:
-      "Address: No. 16-18, 4th Floor, Building 5D, Software Industry Base, Gaoxin South 10th Road, Yuehai Street, Nanshan District, Shenzhen",
-    describe2: "Tel: 0755-86233933",
+    describe2: "Tel: 13923809364",
     describe3: "Postal Code: 518057",
-    describe4: "Email: info{'@'}topode.com",
-    describe5: "Website: www.topode.com",
+    describe4: "Email: tina_ycd02{'@'}163.com",
+    describe5: "Website: www. .com",
     describe6: "Product Center",
     describe8: "Product Advantages",
     describe9: "Company Introduction",
     describe10: "Development History",
     describe11: "Core Team",
-    describe12: "Topode Official Account",
+    describe12: "  Official Account",
     describe13:
-      "Copyright © 2020 Shenzhen Topode Logistics Technology Co., Ltd. Guangdong ICP No. 17035425-1",
+      "",
   },
   home: {
     bannerDescribe: "Industry Digital Solution Operator",
@@ -81,19 +79,19 @@ export default {
       "Create a one-stop cross-border solution for the entire process of cross-border trade, cross-border transportation, customs declaration and clearance, and cross-border receipts and payments.",
     industryDescribe6:
       "Help fruit trading companies build an acquisition, transportation, and sales ecological system to achieve comprehensive business improvement",
-    serviceAdvantage: "Topode service advantages",
+    serviceAdvantage: "  service advantages",
     teamAdvantages: "Team advantages",
     retentionAdvantage: "Customer sedimentation advantages",
     operationAdvantages: "Business operation advantages",
     productAdvantages: "Product matrix advantages",
     serviceAdvantageDescribe1:
-      "Topode gathers professional technical talents and industry experts to concentrate manpower and resources on the research and development of digital systems and industry process optimization. Over the years, the company has launched more than ten system products based on artificial intelligence, blockchain, Internet of Things, and big data, providing a comprehensive digital supply chain collaboration solution for the industry with a mature product matrix.",
+      "  gathers professional technical talents and industry experts to concentrate manpower and resources on the research and development of digital systems and industry process optimization. Over the years, the company has launched more than ten system products based on artificial intelligence, blockchain, Internet of Things, and big data, providing a comprehensive digital supply chain collaboration solution for the industry with a mature product matrix.",
     serviceAdvantageDescribe2:
-      "Topode has provided professional digital supply chain collaboration solutions for over ten industries and thousands of enterprises, covering major cities across the country as well as Southeast Asian countries such as Vietnam and Thailand. The scale of the enterprise has been expanding year by year and continues to maintain high-speed growth.",
+      "  has provided professional digital supply chain collaboration solutions for over ten industries and thousands of enterprises, covering major cities across the country as well as Southeast Asian countries such as Vietnam and Thailand. The scale of the enterprise has been expanding year by year and continues to maintain high-speed growth.",
     serviceAdvantageDescribe3:
-      "The Topode team has been deeply involved in digital transformation services for many years, accumulating experience in serving customers from various industries. They can quickly integrate resources from all parties, meet customer needs, and improve business efficiency while reducing enterprise costs",
+      "The   team has been deeply involved in digital transformation services for many years, accumulating experience in serving customers from various industries. They can quickly integrate resources from all parties, meet customer needs, and improve business efficiency while reducing enterprise costs",
     serviceAdvantageDescribe4:
-      "The product matrix of Topode can meet the digital transformation needs of multiple industries, promote industry digital management, upstream and downstream collaborative development, and efficient resource integration. Simultaneously providing financial support and IT system support for digital transformation enterprises, ensuring efficient collaboration and connectivity between various links and sectors.",
+      "The product matrix of   can meet the digital transformation needs of multiple industries, promote industry digital management, upstream and downstream collaborative development, and efficient resource integration. Simultaneously providing financial support and IT system support for digital transformation enterprises, ensuring efficient collaboration and connectivity between various links and sectors.",
   },
   product: {
     productCenter: "Product Center",
@@ -145,16 +143,16 @@ export default {
     describe1:
       "No. 16-18, 4th Floor, Building 5D, Software Industry Base, Gaoxin South 10th Road, Yuehai Street, Nanshan District, Shenzhen",
     describe2: "0755-86233933",
-    describe3: "info{'@'}topode.com",
-    describe4: "www.topode.com",
+    describe3: "info{'@'} .com",
+    describe4: "www. .com",
   },
   about: {
     companyIntroduction: "Company Introduction",
-    describe1: "Topode - China's leading industry digital solution operator",
+    describe1: "  - China's leading industry digital solution operator",
     describe2:
-      "Since its establishment in 2016, Shenzhen Topode Logistics Technology Co., Ltd. has rapidly developed into a leading industry digital solution operator in China with innovative concepts and technological advantages. The company focuses on integrating cutting-edge digital technologies into various industries, creating comprehensive digital transformation solutions for customers, and ensuring their efficient implementation to drive rapid enterprise development.",
+      "Since its establishment in 2016, Shenzhen   Logistics Technology Co., Ltd. has rapidly developed into a leading industry digital solution operator in China with innovative concepts and technological advantages. The company focuses on integrating cutting-edge digital technologies into various industries, creating comprehensive digital transformation solutions for customers, and ensuring their efficient implementation to drive rapid enterprise development.",
     describe3:
-      "Relying on industry insights and technological research and development capabilities, Topode has successfully provided digital solutions for industries such as logistics, trade, construction, and cross-border. By utilizing digital technology and reengineering business processes, customers can maintain a leading edge in rapidly changing market environments.",
+      "Relying on industry insights and technological research and development capabilities,   has successfully provided digital solutions for industries such as logistics, trade, construction, and cross-border. By utilizing digital technology and reengineering business processes, customers can maintain a leading edge in rapidly changing market environments.",
     describe4: "Development History",
     describe5: "2023\n-\nPresent",
     describe6: "Industry Solutions",
@@ -167,7 +165,7 @@ export default {
       "Increase the intensity of digital product research and development and expand the product matrix",
     describe12:
       "Provide all-round system support for the digital transformation of enterprises",
-    describe13: "Founder and CEO of Topode",
+    describe13: "Founder and CEO of  ",
     describe14: "James Wu",
     describe15:
       "Years of investment in infrastructure projects, with rich experience in operating entities and profound insights into the industry. Through the construction of a digital system and strong resource integration capabilities, we cleverly combine digital technology with industry management theories, committed to creating an efficient and comprehensive digital service system, and empowering the industry.",
@@ -179,7 +177,7 @@ export default {
     describe20: "Collaborative Sharing, Pursuit of Excellence",
     describe21: "Research and development of digital logistics system",
     describe22:
-      "In 2016, Shenzhen Topode Logistics Technology Co., Ltd. was established",
+      "In 2016, Shenzhen   Logistics Technology Co., Ltd. was established",
     describe23:
       "Provide comprehensive system support for the digital transformation of logistics",
     describe24:
@@ -199,7 +197,7 @@ export default {
       "Vice President of Guangzhou Drive Joy Intelligent Logistics Ltd.",
     describe35: "Lixin Xu",
     describe36:
-      "Responsible for online and offline coordination and management. Expert in modern enterprise management and cross-industry marketing with 18-year experience of C-level management. Xu is good at development strategy and the design of enterprise internal control systems. Used to work at Guangzhou Lingnan Cable Co. Ltd. as General Manager. During employment，Xu turned losses into gains for enterprise and made it into the leading industry in South China. In 2015, the company merged into the listed company Guangzhou Zhiguang Electric Co.Ltd.(Stock Code: 002169), and Xu joined TOPODE after that.",
+      "Responsible for online and offline coordination and management. Expert in modern enterprise management and cross-industry marketing with 18-year experience of C-level management. Xu is good at development strategy and the design of enterprise internal control systems. Used to work at Guangzhou Lingnan Cable Co. Ltd. as General Manager. During employment，Xu turned losses into gains for enterprise and made it into the leading industry in South China. In 2015, the company merged into the listed company Guangzhou Zhiguang Electric Co.Ltd.(Stock Code: 002169), and Xu joined   after that.",
     describe37: "Yijun Yan",
     describe38:
       'Responsible for research & development and intellectual property (IT system development). Graduated with a Master\'s degree in computer science. 30-years experience in R&D project management. Sensitive to technology and market and have rich experience in computer and C-level management of Internet enterprises. Director of Shenzhen Linux public technology platform and project leader of "Shenzhen Green Computing Service Center" of national development and Reform Commission. Awarded the second prize of science and technology progress of Guangdong Province.',
@@ -210,7 +208,7 @@ export default {
   financialService: {
     bannerTitle: "Logistics Financial Solutions",
     describe1:
-      "Topode's Logistics + Finance ecosystem is committed to connecting upstream and downstream roles such as shippers, logistics companies, and freight drivers, and forming a closed payment loop with orders as the core. Based on the real business scenarios of shippers' waybills, it helps upstream and downstream small and micro enterprises optimize fund management and solve financing problems.",
+      " 's Logistics + Finance ecosystem is committed to connecting upstream and downstream roles such as shippers, logistics companies, and freight drivers, and forming a closed payment loop with orders as the core. Based on the real business scenarios of shippers' waybills, it helps upstream and downstream small and micro enterprises optimize fund management and solve financing problems.",
     describe2:
       "The company is committed to digitizing and informatizing the traditional logistics ecosystem. Through the digital logistics ecosystem, it provides application scenarios for financial services, improves customer service capabilities through financial services, realizes the effective integration of logistics services and financial services in strategic and business dimensions, and builds and deepens the Logistics + Finance ecosystem.",
     serviceName1: "Shipper Financial Services",
@@ -218,7 +216,7 @@ export default {
       "Based on the online freight model, it launches the shipper-side freight finance business, takes the upstream shipper's accounts receivable as the core financing target, and provides 3-6 months of account period services to the downstream to reduce the freight capital pressure of the shipper.",
     serviceName2: "Carrier Financial Services",
     serviceContent2:
-      "The platform issues freight credit loans to stable carriers to meet their short-term business turnover needs. Topode can provide factoring services for them and pay the freight to downstream on their behalf first, and then repay the money after the cargo owner returns the money.",
+      "The platform issues freight credit loans to stable carriers to meet their short-term business turnover needs.   can provide factoring services for them and pay the freight to downstream on their behalf first, and then repay the money after the cargo owner returns the money.",
     serviceName3: "Driver Financial Services",
     serviceContent3:
       "Based on the driver's relevant order data, transaction data, and credit rating on the platform, the platform will conduct credit assessments on individual drivers and issue driver loans, refueling loans, and freight loans to drivers with repayment capabilities.",
@@ -234,19 +232,19 @@ export default {
     serviceContent7: "Credit loans, no collateral required",
     bannerTitle2: "Trade finance solutions",
     describe3:
-      "Topode integrates the business flow, logistics flow, capital flow and information flow of the entire supply chain through digital means, and launches different financing products to meet the real needs of upstream and downstream enterprises in the supply chain.",
+      "  integrates the business flow, logistics flow, capital flow and information flow of the entire supply chain through digital means, and launches different financing products to meet the real needs of upstream and downstream enterprises in the supply chain.",
     serviceName8: "Order financing",
     serviceContent8:
-      "Topode provides financial support for enterprises with good credit buyer product orders, so that enterprises can purchase materials and organize production, solving the financing problems of enterprises.",
+      "  provides financial support for enterprises with good credit buyer product orders, so that enterprises can purchase materials and organize production, solving the financing problems of enterprises.",
     serviceName9: "Warehouse receipt financing",
     serviceContent9:
-      "The financing enterprise provides warehouse receipts for warehousing pledge, and Topode provides financial support of a certain value ratio to it according to the value of the pledge and other relevant factors, solving the capital pressure of the enterprise.",
+      "The financing enterprise provides warehouse receipts for warehousing pledge, and   provides financial support of a certain value ratio to it according to the value of the pledge and other relevant factors, solving the capital pressure of the enterprise.",
     serviceName10: "Accounts receivable financing",
     serviceContent10:
-      "Topode provides the required funds for enterprises according to a certain proportion of the face value of accounts receivable, strengthening the turnover capacity of enterprises' funds. ",
+      "  provides the required funds for enterprises according to a certain proportion of the face value of accounts receivable, strengthening the turnover capacity of enterprises' funds. ",
     serviceName11: "Prepaid Account Financing",
     serviceContent11:
-      "The company's unpaid accounts are pledged to Topode. Topode provides financial support and quick access to funds based on the company's operating conditions and credit rating. ",
+      "The company's unpaid accounts are pledged to  .   provides financial support and quick access to funds based on the company's operating conditions and credit rating. ",
     bannerTitle3: "Advantages of Trade Finance Solutions",
     serviceName12: "Open",
     serviceContent12:
@@ -503,7 +501,7 @@ export default {
       "Integrate procurement, transportation, customs services, supply chain finance, etc. to create a fully managed fresh fruit trade ecosystem",
     describe3: "Fresh Fruit Trade Solutions",
     describe4:
-      "Topode customizes one-stop trade solutions for fruit traders, covering the entire process from overseas source procurement to market channel sales. Provides full-service services such as efficient domestic and overseas transportation of fresh fruits, convenient customs clearance, and supply chain financial support to help traders expand their market territory and enhance their market competitiveness.",
+      "  customizes one-stop trade solutions for fruit traders, covering the entire process from overseas source procurement to market channel sales. Provides full-service services such as efficient domestic and overseas transportation of fresh fruits, convenient customs clearance, and supply chain financial support to help traders expand their market territory and enhance their market competitiveness.",
     describe5: "Source procurement",
     describe6: "Efficient transportation",
     describe7: "Convenient customs clearance",
@@ -555,13 +553,13 @@ export default {
     describe14: "Cross-border settlement",
     describe15: "Industry customization, shielding policy risks",
     describe16:
-      "Topode tailors solutions for enterprises to ensure compliance with the compliance requirements of various countries, support\ncross-border transactions, effectively shield policy risks, and allow enterprises to focus on business development.",
+      "  tailors solutions for enterprises to ensure compliance with the compliance requirements of various countries, support\ncross-border transactions, effectively shield policy risks, and allow enterprises to focus on business development.",
     describe17: "Seamless system connection, rapid business start",
     describe18:
       "The cross-border trade platform has designed a rich set of third-party interfaces to achieve seamless connection between orders and customs, payment, logistics and other systems, such as three-in-one customs declaration, to ensure rapid business launch.",
     describe19: "Multi-language, multi-front-end, multi-currency compatible",
     describe20:
-      "Topode's cross-border trade solution is compatible with tax rate requirements, currencies, collection and logistics systems of various countries and regions, complies with the laws and regulations of various countries, and can quickly connect to the logistics system.",
+      " 's cross-border trade solution is compatible with tax rate requirements, currencies, collection and logistics systems of various countries and regions, complies with the laws and regulations of various countries, and can quickly connect to the logistics system.",
     describe21: "Customized business process",
     describe22:
       "Through multi-dimensional precipitation of customer data, one-stop management of customers, business opportunities and orders is achieved, and personalized customization system functions are provided to meet the needs of different business scenarios.",

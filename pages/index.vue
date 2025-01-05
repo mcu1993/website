@@ -439,7 +439,7 @@ onBeforeUnmount(() => {
 
 @media screen and (max-width: 750px) {
   .carousel {
-    margin-bottom: 4.533vw;
+    margin-bottom: 0;
     :deep(.ant-carousel) {
       .slick-slide {
         height: 83.467vw;

@@ -34,7 +34,7 @@ jobs:
         with:
           node-version: '20' # 使用适合的 Node.js 版本
 
-      - name: Enable pnpm
+      - name: Enable npm
         run: corepack enable
 
       - name: Install Dependencies

@@ -6,9 +6,6 @@
           <div class="logo">
             <img src="@/assets/home/logo.png" alt="" />
           </div>
-          <div class="describe-item">
-            {{ $t("footer.describe1") }}
-          </div>
           <div class="describe-item">{{ $t("footer.describe2") }}</div>
           <div class="describe-item">{{ $t("footer.describe3") }}</div>
           <div class="describe-item">{{ $t("footer.describe4") }}</div>

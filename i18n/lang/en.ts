@@ -25,7 +25,6 @@ export default {
     describe9: "Company Introduction",
     describe10: "Development History",
     describe11: "Core Team",
-    describe12: "  Official Account",
     describe13:
       "",
   },

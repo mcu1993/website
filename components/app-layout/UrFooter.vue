@@ -288,9 +288,7 @@ const handleMenuClick = (key: string) => {
 
   .record-number {
     height: auto;
-    min-height: 52px;
-    padding: 6px 10%;
-    line-height: 22px;
+    // padding: 6px 10%;
   }
 }
 </style>

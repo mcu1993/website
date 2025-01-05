@@ -25,7 +25,6 @@ export default {
     describe9: "企业介绍",
     describe10: "发展历程",
     describe11: "核心团队",
-    describe12: "一昌达公众号",
     describe13:
       "Copyright © 深圳一昌达科技有限公司",
   },

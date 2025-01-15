@@ -3,9 +3,9 @@
     <div class="describe-container">
       <div class="describe-gird" data-aos="fade-up">
         <div class="describe-item-box">
-          <div class="logo">
+          <!-- <div class="logo">
             <img src="@/assets/home/logo.png" alt="" />
-          </div>
+          </div> -->
           <div class="describe-item">{{ $t("footer.describe2") }}</div>
           <div class="describe-item">{{ $t("footer.describe3") }}</div>
           <div class="describe-item">{{ $t("footer.describe4") }}</div>

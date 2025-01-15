@@ -2,7 +2,6 @@
   <div class="ur-header">
     <div class="body">
       <div class="logo-box">
-        <img src="@/assets/logo.png" alt="" />
       </div>
       <div class="tabs-box">
         <a-tabs
@@ -13,7 +12,7 @@
           <a-tab-pane v-for="item in tabs" :key="item.value">
             <template #tab>
               <span
-                v-if="item.value !== 'solution' && item.value !== 'financial'"
+                v-if="item.value !== 'solution' "
               >
                 {{ item.name }}
               </span>
@@ -23,14 +22,12 @@
                 </div>
                 <DownOutlined />
                 <template #overlay>
-                  <a-menu>
-                    <a-menu-item
-                      v-for="(list, key) in item.children"
-                      :key="key"
-                      @click="handleMenuClick(list.value)"
-                    >
-                      {{ list.name }}
-                    </a-menu-item>
+                  <a-menu 
+                  style="width: 256px"
+                  mode="vertical"
+                  :items="items"
+                  @click="handleClick"
+                  >
                   </a-menu>
                 </template>
               </a-dropdown>
@@ -74,7 +71,7 @@
   <tabs-mobile v-model:visible="tabsMobileVisible" :tabs="tabs"></tabs-mobile>
 </template>
 <script setup lang="ts">
-import { ref, computed, onMounted, watch } from "vue";
+import { h, ref, computed, onMounted, watch } from "vue";
 import { useRouter, useRoute } from "vue-router";
 import { DownOutlined } from "@ant-design/icons-vue";
 import UrIcon from "@/components/icon";
@@ -89,37 +86,192 @@ export interface Tabs {
 
 const { t, locale, setLocale } = useI18n();
 
+
+const selectedKeys = ref([]);
+const openKeys = ref([]);
+const items = ref([
+  {
+    key: '1',
+    label: '基础性能检测',
+    title: '基础性能检测',
+    children: [
+      {
+        key: 'sub1-1',
+        label: '力学性能分析检测系列',
+        title: '力学性能分析检测系列',
+      },
+      {
+        key: 'sub1-2',
+        label: '耐久性及其他性能分析检测系列',
+        title: '耐久性及其他性能分析检测系列',
+      },
+      {
+        key: 'sub1-3',
+        label: '化学性能分析检测系列',
+        title: '化学性能分析检测系列',
+      },
+    ],
+  },
+  {
+    key: '2',
+    label: '材料制备与加工',
+    title: '材料制备与加工',
+    children: [
+      {
+        key: 'sub2-1',
+        label: '材料加工系列',
+        title: '材料加工系列',
+        children: [
+           {
+             key: 'sub2-1-1',
+             label: '切磨抛',
+             title: '切磨抛',
+            },
+           {
+             key: 'sub2-1-2',
+             label: '破、研磨、压片',
+             title: '破、研磨、压片',
+            },
+           {
+             key: 'sub2-1-3',
+             label: '高温烧结炉设备',
+             title: '高温烧结炉设备',
+            },
+        ]
+      },
+      {
+        key: 'sub2-2',
+        label: '材料成型系列',
+        title: '材料成型系列',
+      },
+      {
+        key: 'sub3-3',
+        label: '材料分离系列',
+        title: '材料分离系列',
+      },
+      {
+        key: 'sub3-4',
+        label: '材料混合系列',
+        title: '材料混合系列',
+      },
+    ],
+  },
+  {
+    key: '3',
+    label: '环境控制设备',
+    title: '环境控制设备',
+    children: [
+      {
+        key: 'sub3-1',
+        label: '恒控系统系列',
+        title: '恒控系统系列',
+        children: [
+          {
+            key: 'sub3-1-1',
+            label: '箱体',
+            title: '箱体',
+          },
+          {
+            key: 'sub3-1-2',
+            label: '机体',
+            title: '机体',
+          },
+          {
+            key: 'sub3-1-3',
+            label: '锅炉',
+            title: '锅炉',
+          },
+        ],
+      },
+      {
+        key: 'sub3-2',
+        label: '无菌环境系列',
+        title: '无菌环境系列',
+      },
+      {
+        key: 'sub3-3',
+        label: '气体环境系列',
+        title: '气体环境系列',
+      },
+    ],
+  },
+  {
+    key: '4',
+    label: '微观分析检测',
+    title: '微观分析检测',
+    children: [
+      {
+        key: 'sub4-1',
+        label: '显微镜系列',
+        title: '显微镜系列',
+        children: [
+          {
+            key: 'sub4-1-1',
+            label: '光学显微镜',
+            title: '光学显微镜',
+          },
+          {
+            key: 'sub4-1-2',
+            label: '金相显微镜',
+            title: '金相显微镜',
+          },
+          {
+            key: 'sub4-1-3',
+            label: '电子显微镜',
+            title: '电子显微镜',
+          },
+        ],
+      },
+      {
+        key: 'sub4-2',
+        label: '元素分析检测系列',
+        title: '元素分析检测系列',
+      },
+      {
+        key: 'sub4-3',
+        label: '内部结构分析检测系列',
+        title: '内部结构分析检测系列',
+        children: [
+          {
+            key: 'sub4-3-1',
+            label: 'CT、X光、核磁等成像相关',
+            title: 'CT、X光、核磁等成像相关',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    key: '5',
+    label: '科睿定制系列-定制化解决方案',
+    title: '科睿定制系列-定制化解决方案',
+    children: [
+      {
+        key: '7',
+        label: 'Option 7',
+        title: 'Option 7',
+      },
+    ],
+  },
+]);
+
 const tabs = ref<Tabs[]>([
   { name: t("header.home"), value: "index" },
   {
     name: '关于我们',
     value: "About",
-    children: [
-      { name: '品牌介绍', value: "About" },
-      { name: '企业介绍', value: "About" },
-    ],
   },
   {
     name: "产品中心",
     value: "solution",
-    children: [
-      { name: t("header.solution1"), value: "FullScence" },
-      { name: t("header.solution2"), value: "Solution" },
-      { name: t("header.solution3"), value: "Engineering" },
-      { name: t("header.solution4"), value: "SandTrade" },
-      { name: t("header.solution5"), value: "FreshFruit" },
-      { name: t("header.solution6"), value: "CrossBorderDigital" },
-    ],
   },
   {
     name: "服务支持",
-    value: "financial",
-    children: [
-      { name: t("header.solution8"), value: "LogisticsFinance" },
-      { name: t("header.solution9"), value: "TradeFinance" },
-    ],
+    value: "AfterSale",
   },
-  { name: '人才发展', value: "rencai" },
+  { name: '人才发展', 
+    value: "rencai" 
+  },
 ]);
 
 const activeKey = ref("index");
@@ -221,11 +373,9 @@ const handleMenuClick = (key: string) => {
     max-width: 1920px;
 
     .logo-box {
-      text-align: center;
-      img {
-        width: 205px;
-        height: 48px;
-      }
+      width: 205px;
+      height: 48px;
+      background-image:  url("../../assets/logo.png");
     }
 
     .tabs-box {
@@ -315,13 +465,10 @@ const handleMenuClick = (key: string) => {
 
     .body {
       .logo-box {
-        padding: 0 20px;
-
-        img {
-          width: 100px;
-          height: 24px;
-        }
-      }
+      width: 100px;
+      height: 26px;
+      background-image:  url("../../assets/logo2.png");
+    }
 
       .tabs-box {
         flex: 1;

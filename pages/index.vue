@@ -1,7 +1,6 @@
 <template>
-  <div class="home-container">
-    <div class="carousel">
-      <a-carousel :autoplay="true" :before-change="beforeChange">
+  <div class="carousel">
+      <a-carousel style="flex: 1;" :autoplay="true" :before-change="beforeChange">
         <div class="carousel-item">
           <img :src="banner1Img" alt="" />
           <div
@@ -58,8 +57,6 @@
         </div>
       </a-carousel>
     </div>
-
-  </div>
 </template>
 
 <script setup lang="ts">
@@ -442,11 +439,11 @@ onBeforeUnmount(() => {
     margin-bottom: 0;
     :deep(.ant-carousel) {
       .slick-slide {
-        height: 83.467vw;
-        line-height: 83.467vw;
+        height: 60vh;
+        line-height: 60vh;
       }
       .carousel-item {
-        height: 83.467vw;
+        height: 60vh;
         .introduction {
           height: 40vw;
           text-align: left;

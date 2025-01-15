@@ -7,15 +7,19 @@
       <div class="section-title" data-aos="fade-up">
         企业简介
       </div>
-      <!-- <div class="section-subtitle" data-aos="fade-up">
+       <!-- <div class="section-subtitle" data-aos="fade-up">
         {{ $t("about.describe1") }}
-      </div>
-      <div class="section-content" data-aos="fade-up" data-aos-delay="300">
-        {{ $t("about.describe2") }}
-      </div>
-      <div class="section-content" data-aos="fade-up" data-aos-delay="300">
-        {{ $t("about.describe3") }}
       </div> -->
+      <div class="section-content" style="margin-top: 32px;" data-aos="fade-up" data-aos-delay="300">
+        科睿高科（深圳）科技公司是一家从事前沿材料科学与工程研究与销售的公司，我们的产品涵盖材料制备合成、材料检测、材料环境控制等一系列实验室及户外产业线，我们的客户群体包括国内外高校、科研院所、检测机构、商混及外加剂生产企业等各个领域。</div>
+      <div class="section-content" data-aos="fade-up" data-aos-delay="300">
+        自公司成立以来，公司切实执行“产学研”发展方针，与各大高校及研究所深入合作，在浙江和广东都建立了规模化的生产和研发基地，不断在自我超越中迭代，以高水准品质，根据不同的客户需求，严格依照行业最高标准为客户提供定制服务，给予客户高可靠性解决方案。
+      </div> 
+      <div class="section-content" data-aos="fade-up" data-aos-delay="300">
+        经过多年的发展，科睿品牌已具备较强的市场竞争力，真诚、实质、优质、专业是我们的口号，我们将继续坚持科技创新，专注为客户创造价值，聚焦创新产品与核心技术，围绕品牌发展的核心任务，全面深入推进科睿品牌产品竞争力的提升，为推动世界科学仪器振兴作出“科睿人”的贡献。
+      </div> 
+      
+
     </div>
     <div class="footer-grid-box">
         <div class="footer-grid">
@@ -131,18 +135,13 @@ onBeforeUnmount(() => {
     }
 
     .section-content {
-      margin: 14px 24px auto 24px;
+      margin: 5px 24px auto 24px;
       text-indent: 2em;
       text-align: start;
       font-weight: 400;
-      font-size: 16px;
+      font-size: 20px;
       color: #606367;
-      line-height: 28px;
-      margin-top: 32px;
-    }
-
-    .section-content:last-child {
-      margin-top: 5px;
+      line-height: 27px;
     }
   }
   .footer-grid-box {

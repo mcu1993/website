@@ -15,6 +15,9 @@
               :key="index"
               class="footer-box-item"
               @click="selectedIndex=index"
+              
+            data-aos="fade-up"
+            :data-aos-delay="300 + index * 200"
               :class="{content_s:index==selectedIndex}" 
             >
               <!-- <ur-icon class="footer-img" :type="itm.img.value"></ur-icon> -->

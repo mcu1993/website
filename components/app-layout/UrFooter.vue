@@ -1,5 +1,5 @@
 <template>
-  <footer class="ur-footer">
+  <footer v-if="route.path!='/zh'" class="ur-footer">
     <div class="describe-container">
       <div class="describe-gird" data-aos="fade-up">
         <div class="describe-item-box">
@@ -34,7 +34,7 @@
     </div>
   </footer>
 
-  <div class="tabs-list">
+  <div  v-if="route.path!='/zh'" class="tabs-list">
     <div v-for="(item, index) in tabs" :key="index">
       <div
         v-if="!item.children?.length"
@@ -68,8 +68,8 @@
       <div class="describe-item">{{ $t("footer.describe5") }}</div>
     </div>
   </div>
-  <div class="record-number">
-    {{ $t("footer.describe13") }}
+  <div v-if="route.path!='/zh'" class="record-number">
+    Copyright © 科睿高科（深圳）科技有限公司
   </div>
 </template>
 <script setup lang="ts">

@@ -17,35 +17,35 @@
           <div>{{ itm.name }}</div>
         </div>
       </div>
-      <div v-if="selectedIndex==1">
-        <div class="section-title"  data-aos="fade-up">
-        售后服务电话:
-      </div>
-      <div class="section-content"  data-aos="fade-up">
-        400-9999-9999
-      </div>
-      <div class="section-title"  data-aos="fade-up">
-        建立时效标准：
-      </div>
-      <div class="section-content"  data-aos="fade-up">
-        我司拥有成熟的技术人员配置，每周7X24H的响应机制，客户可通过官方网站或者前端人员了解售后电话，我司承诺收到售后电话，24小时内回复，48小时内到达现场。
-      </div>
-      <div class="section-title"  data-aos="fade-up">
-        主动沟通的机制：
-      </div>
-      <div class="section-content"  data-aos="fade-up">
-        设备交付完成后1个月内就设备使用规范性回访一次，交付一个月后每半年内进行一次使用详情回访，后期对设备的耐久损耗进行回访一次。
-      </div>
-      <div class="section-title"  data-aos="fade-up">
-        投诉处理通道：
-      </div>
-      <div class="section-content"  data-aos="fade-up">
-        我司建立了从线上到线下互通的完整渠道，线上包括官方邮箱、官方网站、服务电话等，线下包括从售前、售后我司人员对客户不定时的面对面沟通渠道。
-      </div>
-      <div class="section-title"  data-aos="fade-up">
-        故障处理流程：
-      </div>
-      <img class="img" src="../assets/aftersale/44.png" alt="" srcset=""   data-aos="fade-up"/>
+      <div v-if="selectedIndex == 1">
+        <div class="section-title" data-aos="fade-up">
+          售后服务电话:
+        </div>
+        <div class="section-content" data-aos="fade-up">
+          400-9999-9999
+        </div>
+        <div class="section-title" data-aos="fade-up">
+          建立时效标准：
+        </div>
+        <div class="section-content" data-aos="fade-up">
+          我司拥有成熟的技术人员配置，每周7X24H的响应机制，客户可通过官方网站或者前端人员了解售后电话，我司承诺收到售后电话，24小时内回复，48小时内到达现场。
+        </div>
+        <div class="section-title" data-aos="fade-up">
+          主动沟通的机制：
+        </div>
+        <div class="section-content" data-aos="fade-up">
+          设备交付完成后1个月内就设备使用规范性回访一次，交付一个月后每半年内进行一次使用详情回访，后期对设备的耐久损耗进行回访一次。
+        </div>
+        <div class="section-title" data-aos="fade-up">
+          投诉处理通道：
+        </div>
+        <div class="section-content" data-aos="fade-up">
+          我司建立了从线上到线下互通的完整渠道，线上包括官方邮箱、官方网站、服务电话等，线下包括从售前、售后我司人员对客户不定时的面对面沟通渠道。
+        </div>
+        <div class="section-title" data-aos="fade-up">
+          故障处理流程：
+        </div>
+        <img class="img" src="../assets/aftersale/44.png" alt="" srcset="" data-aos="fade-up" />
       </div>
     </div>
   </div>
@@ -155,7 +155,7 @@ onBeforeUnmount(() => {
   .section {
     max-width: 1448px;
     margin: auto;
-    
+
   }
 
   .footer-grid-box {
@@ -179,9 +179,11 @@ onBeforeUnmount(() => {
       color: #606367;
       line-height: 27px;
     }
+
     .img {
       margin: 15px;
     }
+
     .footer-grid {
       display: grid;
       margin: auto;
@@ -191,11 +193,15 @@ onBeforeUnmount(() => {
       grid-template-columns: repeat(auto-fit, 200px);
 
       .footer-box-item {
-        cursor:pointer;
-        -webkit-user-select: none; /* Safari */
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* IE10+/Edge */
-    user-select: none; /* Standard syntax */
+        cursor: pointer;
+        -webkit-user-select: none;
+        /* Safari */
+        -moz-user-select: none;
+        /* Firefox */
+        -ms-user-select: none;
+        /* IE10+/Edge */
+        user-select: none;
+        /* Standard syntax */
         border-radius: 12px;
         background-color: #f8f8f8;
         display: flex;
@@ -263,6 +269,7 @@ onBeforeUnmount(() => {
 
     .footer-grid-box {
       margin: 3.333vw;
+
       .section-title {
         font-size: 4.8vw;
       }

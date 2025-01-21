@@ -9,7 +9,7 @@ const pathResolve = (pathStr: string) => resolve(__dirname, pathStr);
 export default defineNuxtConfig({
   devtools: { enabled: true },
   app: {
-    baseURL: '/website/',
+    baseURL: '/',
   },
   serverDir: "static",
   bridge: false,

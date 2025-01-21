@@ -3,7 +3,7 @@
       <a-carousel style="flex: 1;" :autoplay="true" :before-change="beforeChange">
         <div class="carousel-item">
           <img :src="banner1Img" alt="" />
-          <!-- <div
+          <div
             v-if="currentIndex === 0"
             class="introduction"
             data-aos="fade-right"
@@ -17,15 +17,29 @@
             <h2>
               {{ $t("home.bannerDescribe3") }}
             </h2>
-          </div> -->
+          </div>
         </div>
         <div class="carousel-item">
           <img :src="banner2Img" alt="" />
-          <!-- <div/ -->
+          <div
+            v-if="currentIndex === 1"
+            class="introduction"
+            data-aos="fade-right"
+          >
+            <h1 class="title">
+              {{ $t("home.bannerDescribe5") }}
+            </h1>
+            <h1 v-if="isEnglish" class="title">
+              {{ $t("home.bannerDescribe5d1") }}
+            </h1>
+            <h2>
+              {{ $t("home.bannerDescribe6") }}
+            </h2>
+          </div>
         </div>
         <div class="carousel-item">
           <img :src="banner3Img" alt="" />
-          <!-- <div
+          <div
             v-if="currentIndex === 2"
             class="introduction"
             data-aos="fade-right"
@@ -39,7 +53,7 @@
             <h2>
               {{ $t("home.bannerDescribe6") }}
             </h2>
-          </div> -->
+          </div>
         </div>
       </a-carousel>
     </div>
@@ -47,7 +61,6 @@
 
 <script setup lang="ts">
 import { ref, onMounted, onBeforeUnmount } from "vue";
-import UrIcon from "@/components/icon";
 import banner1 from "@/assets/home/banner1.jpg";
 import banner1H5 from "@/assets/home/banner1_h5.jpg";
 import banner2 from "@/assets/home/banner2.jpg";
@@ -58,16 +71,6 @@ import service from "@/assets/home/service.jpg";
 import serviceH5 from "@/assets/home/service_h5.png";
 import serviceEn from "@/assets/home/service_english.png";
 import serviceEnH5 from "@/assets/home/service_english_h5.png";
-import service1 from "@/assets/home/service1.png";
-import service2 from "@/assets/home/service2.png";
-import service3 from "@/assets/home/service3.png";
-import service4 from "@/assets/home/service4.png";
-import industrySector1 from "@/assets/home/industry_sector1.png";
-import industrySector2 from "@/assets/home/industry_sector2.png";
-import industrySector3 from "@/assets/home/industry_sector3.png";
-import industrySector4 from "@/assets/home/industry_sector4.png";
-import industrySector5 from "@/assets/home/industry_sector5.png";
-import industrySector6 from "@/assets/home/industry_sector6.png";
 import { isZhLocale, isEnLocale } from "@/utils/helper";
 
 const isChina = isZhLocale();
@@ -83,67 +86,6 @@ const beforeChange = (from: number, to: number) => {
   currentIndex.value = to;
 };
 const { t } = useI18n();
-const digitalServices = [
-  {
-    img: service1,
-    title: t("home.serviceName1"),
-    describe: t("home.serviceDescribe1"),
-  },
-  {
-    img: service2,
-    title: t("home.serviceName2"),
-    describe: t("home.serviceDescribe2"),
-  },
-  {
-    img: service3,
-    title: t("home.serviceName3"),
-    describe: t("home.serviceDescribe3"),
-  },
-  {
-    img: service4,
-    title: t("home.serviceName4"),
-    describe: t("home.serviceDescribe4"),
-  },
-];
-
-const industrySector = [
-  {
-    bgImg: industrySector1,
-    icon: "manufacturing",
-    title: t("home.industryName1"),
-    describe: t("home.industryDescribe1"),
-  },
-  {
-    bgImg: industrySector2,
-    icon: "energy-and-Resources",
-    title: t("home.industryName2"),
-    describe: t("home.industryDescribe2"),
-  },
-  {
-    bgImg: industrySector3,
-    icon: "construction-work",
-    title: t("home.industryName3"),
-    describe: t("home.industryDescribe3"),
-  },
-  {
-    bgImg: industrySector4,
-    icon: "warehouse-logistics",
-    title: t("home.industryName4"),
-    describe: t("home.industryDescribe4"),
-  },
-  {
-    bgImg: industrySector5,
-    icon: "cross-border-platform",
-    title: t("home.industryName5"),
-    describe: t("home.industryDescribe5"),
-  },
-  {
-    bgImg: industrySector6,
-    icon: "fresh-fruit",
-    title: t("home.industryName6"),
-    describe: t("home.industryDescribe6"),
-  },
-];
 
 const updateImageSource = () => {
   if (window.innerWidth <= 750) {
@@ -186,30 +128,31 @@ onBeforeUnmount(() => {
       height: 100%;
       display: flex;
       flex-direction: column;
+      position: relative;
       img {
         width: 100%;
         object-fit: cover;
         height: calc(100vh - 77px);
       }
-      // .introduction {
-      //   height: 100px;
-      //   text-align: left;
-      //   // margin-top: -350px;
-      //   margin-left: 14%;
-      //   position: relative;
-      //   h1 {
-      //     font-weight: 600;
-      //     font-size: clamp(28px, 2.708vw, 52px);
-      //     color: #31353d;
-      //     line-height: clamp(28px, 2.76vw, 52px);
-      //   }
-      //   h2 {
-      //     font-weight: 400;
-      //     font-size: clamp(15px, 1.25vw, 24px);
-      //     color: #494949;
-      //     line-height: clamp(15px, 1.563vw, 30px);
-      //   }
-      // }
+       .introduction {
+         height: 100px;
+         text-align: left;
+         position: absolute;
+         top: 10%;
+         left: 10%;
+         h1 {
+           font-weight: 600;
+           font-size: clamp(28px, 2.708vw, 52px);
+           color: #31353d;
+           line-height: clamp(28px, 2.76vw, 52px);
+         }
+         h2 {
+           font-weight: 400;
+           font-size: clamp(15px, 1.25vw, 24px);
+           color: #494949;
+           line-height: clamp(15px, 1.563vw, 30px);
+         }
+       }
     }
   }
 }

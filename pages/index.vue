@@ -27,13 +27,13 @@
             data-aos="fade-right"
           >
             <h1 class="title">
-              {{ $t("home.bannerDescribe5") }}
+              {{ $t("home.bannerDescribe3") }}
             </h1>
             <h1 v-if="isEnglish" class="title">
               {{ $t("home.bannerDescribe5d1") }}
             </h1>
             <h2>
-              {{ $t("home.bannerDescribe6") }}
+              {{ $t("home.bannerDescribe4") }}
             </h2>
           </div>
         </div>

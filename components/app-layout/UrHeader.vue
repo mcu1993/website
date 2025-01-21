@@ -245,13 +245,6 @@ const items = ref([
     key: '5',
     label: '科睿定制系列-定制化解决方案',
     title: '科睿定制系列-定制化解决方案',
-    children: [
-      {
-        key: '7',
-        label: 'Option 7',
-        title: 'Option 7',
-      },
-    ],
   },
 ]);
 

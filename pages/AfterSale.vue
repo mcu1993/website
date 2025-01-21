@@ -1,9 +1,9 @@
 <template>
-  <div class="banner">
+  <div class="banner" :style="{'background-image':footer_list[selectedIndex].bannerImg}"> 
     <div class="banner_tips" data-aos="fade-right">
-      <div class="banner_title">应用广泛</div>
+      <div class="banner_title">{{footer_list[selectedIndex].bannerTitle}}</div>
       <div class="banner_text">
-        品质耕耘持续领跑市场
+        {{footer_list[selectedIndex].bannerText}}
       </div>
     </div>
   </div>
@@ -63,24 +63,40 @@ import img1 from "@/assets/aftersale/fuwu1.png";
 import img2 from "@/assets/aftersale/fuwu2.png";
 import img3 from "@/assets/aftersale/fuwu3.png";
 import img4 from "@/assets/aftersale/fuwu4.png";
+import img11 from "@/assets/aftersale/3.webp";
+import img22 from "@/assets/aftersale/33.webp";
+import img33 from "@/assets/aftersale/22.webp";
+import img44 from "@/assets/aftersale/4.webp";
 const footer_list = [
   {
+    bannerTitle:'应用广泛',
+    bannerText:'品质耕耘持续领跑市场',
     img: img1,
+    bannerImg: 'url('+img11+')',
     name: '销售平台',
     srt: '',
   },
   {
+    bannerTitle:'坚持客户第一',
+    bannerText:'7*15小时在线服务',
     img: img2,
+    bannerImg: 'url('+img22+')',
     name: '售后服务',
     srt: '',
   },
   {
+    bannerTitle:'欢迎下载以下资料',
+    bannerText:'我们将不定期更新',
     img: img3,
+    bannerImg: 'url('+img33+')',
     name: '资料下载',
     srt: '',
   },
   {
+    bannerTitle:'您的宝贵留言',
+    bannerText:'对我们至关重要',
     img: img4,
+    bannerImg: 'url('+img44+')',
     name: '网上留言',
     srt: '',
   },
@@ -107,11 +123,11 @@ onBeforeUnmount(() => {
 </script>
 
 <style lang="less" scoped>
+
 .banner {
   position: relative;
   width: 100%;
   height: 428px;
-  background-image: url("../assets/aftersale/33.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

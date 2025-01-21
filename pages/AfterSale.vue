@@ -13,7 +13,7 @@
         <div v-for="(itm, index) in footer_list" :key="index" class="footer-box-item" @click="selectedIndex = index"
           :class="{ content_s: index == selectedIndex }">
           <!-- <ur-icon class="footer-img" :type="itm.img.value"></ur-icon> -->
-          <img class="img" :src="itm.img" style="margin-top: 20px;width: 80px; height: 80px;" alt="" srcset="" />
+          <img class="img" :src="itm.img" alt="" srcset="" />
           <div>{{ itm.name }}</div>
         </div>
       </div>
@@ -214,9 +214,10 @@ onBeforeUnmount(() => {
         box-sizing: border-box;
         height: 160px;
 
-        .footer-img {
-          padding-top: 14px;
-          font-size: 66px;
+        .img {
+          margin-top: 20px;
+          width: 50px;
+          height: 50px;
         }
 
         div {
@@ -279,41 +280,37 @@ onBeforeUnmount(() => {
         line-height: 4.5vw;
       }
 
+      .img {
+        width: calc(100vw - 60px);
+      }
+
       .footer-grid {
         display: grid;
         margin: auto 0;
         row-gap: 0;
         column-gap: 0;
-        gap: 3.333vw;
-        grid-template-columns: 1fr 1fr;
+        gap: 1vw;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
 
         .footer-box-item {
-          height: 160px;
+          height: 21.333vw;
           border-radius: 1.6vw;
           align-items: center;
 
-          .footer-img {
-            top: 4.667vw;
-            padding-top: 0;
-            left: 3.733vw;
-            position: absolute;
-            font-size: 8vw;
-          }
+          .img {
+          margin-top: 2.667vw;
+          width: 6.667vw;
+          height: 6.667vw;
+        }
 
-          .content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-
-            div {
-              margin: 0.667vw 0.667vw 2.667vw 0.667vw;
-              text-align: center;
-              font-size: 4.267vw;
-              line-height: 5.867vw;
-              padding-top: 1.333vw;
-              text-align: start;
-            }
-          }
+        div {
+          margin: 0.667vw 0.667vw 2.667vw 0.667vw;
+          font-weight: 600;
+          font-size: 2.667vw;
+          color: #1f1f1f;
+          line-height: 3.6vw;
+          text-align: center;
+        }
         }
       }
     }

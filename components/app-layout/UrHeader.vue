@@ -301,10 +301,10 @@ const setActiveKey = () => {
     return;
   }
 
-  if (name.includes('Talent')) {
-    activeKey.value = "Talent";
-    return;
-  }
+  // if (name.includes('Talent')) {
+  //   activeKey.value = "Talent";
+  //   return;
+  // }
 
   activeKey.value = name;
 };

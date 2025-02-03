@@ -310,7 +310,13 @@ const setActiveKey = () => {
 };
 
 const handleClick = (e) => {
-  router.push(e.item.value);
+  if (e.item.value === "solution" || e.item.value === "financial") return;
+
+  if (route.path.indexOf(`/${locale.value}/`) === -1) {
+    router.push(`${locale.value}/${e.item.value}`);
+  } else {
+    router.push({ name: `${e.item.value}___${locale.value}` });
+  }
 }
 
 watch(

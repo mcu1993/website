@@ -85,9 +85,6 @@ export interface Tabs {
 
 const { t, locale, setLocale } = useI18n();
 
-
-const selectedKeys = ref([]);
-const openKeys = ref([]);
 const items = ref([
   {
     key: '1',
@@ -313,7 +310,6 @@ const setActiveKey = () => {
 };
 
 const handleClick = (e) => {
-  console.log();
   router.push(e.item.value);
 }
 

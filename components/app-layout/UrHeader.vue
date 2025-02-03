@@ -9,10 +9,10 @@
           class="web-tabs"
           @change="handleTabsChange"
         >
-          <a-tab-pane v-for="item in tabs" :key="item.value">
+          <a-tab-pane v-for="(item,index) in tabs" :key="item.value">
             <template #tab>
               <span
-                v-if="item.value !== 'solution' "
+                v-if="(item.value !== 'solution' && item.value !== 'Talent')"
               >
                 {{ item.name }}
               </span>
@@ -20,12 +20,11 @@
                 <div class="tabs-dropdown-name">
                   {{ item.name }}
                 </div>
-                <DownOutlined />
                 <template #overlay>
                   <a-menu 
                   style="width: 256px"
                   mode="vertical"
-                  :items="items"
+                  :items="index === 2 ?items:items2"
                   @click="handleClick"
                   >
                   </a-menu>
@@ -247,6 +246,20 @@ const items = ref([
     title: '科睿定制系列-定制化解决方案',
   },
 ]);
+const items2 = ref([
+  {
+    key: '1',
+    label: '人才理念',
+    title: '人才理念',
+    value: 'Talent'
+  },
+  {
+    key: '2',
+    label: '人才招聘',
+    title: '人才招聘',
+    value: 'TalentRecruitment'
+  },
+]);
 
 const tabs = ref<Tabs[]>([
   { name: t("header.home"), value: "index" },
@@ -263,7 +276,7 @@ const tabs = ref<Tabs[]>([
     value: "AfterSale",
   },
   { name: '人才发展', 
-    value: "rencai" 
+    value: "Talent" 
   },
 ]);
 
@@ -291,8 +304,18 @@ const setActiveKey = () => {
     return;
   }
 
+  if (name.includes('Talent')) {
+    activeKey.value = "Talent";
+    return;
+  }
+
   activeKey.value = name;
 };
+
+const handleClick = (e) => {
+  console.log();
+  router.push(e.item.value);
+}
 
 watch(
   () => route.name,

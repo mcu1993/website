@@ -396,7 +396,7 @@ const handleClick = (key: number) => {
                     }
 
                     .invite-item-title {
-                        font-size: 21px;
+                        font-size: 2.8vw;
                         font-family: Microsoft YaHei-Bold, Microsoft YaHei;
                         font-weight: bold;
                         color: #333333;

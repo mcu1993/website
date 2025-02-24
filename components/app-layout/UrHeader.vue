@@ -12,7 +12,7 @@
           <a-tab-pane v-for="(item,index) in tabs" :key="item.value">
             <template #tab>
               <span
-                v-if="(item.value !== 'solution' && item.value !== 'Talent')"
+                v-if="(item.value !== 'Product' && item.value !== 'Talent')"
               >
                 {{ item.name }}
               </span>
@@ -266,7 +266,7 @@ const tabs = ref<Tabs[]>([
   },
   {
     name: "产品中心",
-    value: "solution",
+    value: "Product",
   },
   {
     name: "服务支持",
@@ -281,25 +281,9 @@ const activeKey = ref("index");
 const router = useRouter();
 const route = useRoute();
 
-const getChildrenValue = (value: string) => {
-  const data = tabs.value.find((item) => item.value === value);
-  return data?.children?.map((list) => list.value) || [];
-};
 
 const setActiveKey = () => {
   const name = route.name?.split("___")[0];
-  const solutionChildrenValue = getChildrenValue("solution");
-  const financialChildrenValue = getChildrenValue("financial");
-
-  if (solutionChildrenValue.includes(name)) {
-    activeKey.value = "solution";
-    return;
-  }
-
-  if (financialChildrenValue.includes(name)) {
-    activeKey.value = "financial";
-    return;
-  }
 
   if (name.indexOf('Talent') != -1) {
     activeKey.value = "Talent";
@@ -310,7 +294,7 @@ const setActiveKey = () => {
 };
 
 const handleClick = (e) => {
-  if (e.item.value === "solution" || e.item.value === "financial") return;
+  if (e.item.value === "Product" || e.item.value === "financial") return;
 
   if (route.path.indexOf(`/${locale.value}/`) === -1) {
     router.push(`${locale.value}/${e.item.value}`);
@@ -343,7 +327,6 @@ const handleLanguage = (item) => {
 
 // 父菜单点击
 const handleTabsChange = (key: string) => {
-  if (key === "solution" || key === "financial") return;
 
   if (key === "index") {
     router.push({ name: `index___${locale.value}` });

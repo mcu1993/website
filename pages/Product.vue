@@ -1,70 +1,26 @@
 <template>
   <div class="product">
-    <div class="banner">
-      <!-- <img class="img" src="../assets/contact_us/banner.png" alt="" srcset="" /> -->
+    <div class="common-title">
+      <div class="common-title-text">产品列表</div>
+      <div class="common-title-line">
+        <div class="common-title-line1"></div>
+        <div class="common-title-line2"></div>
+      </div>
     </div>
-    <!-- <div class="product-banner">
-      <img src="@/assets/product/banner.png" alt="" />
-    </div> -->
-    <div class="digital-services-box">
-      <div class="title-box" data-aos="fade-up">
-        {{ $t("product.productCenter") }}
-      </div>
-      <div class="tips" data-aos="fade-up" data-aos-delay="300">
-        {{ $t("product.tips") }}
-      </div>
-      <div class="service-grid">
-        <div
-          v-for="(item, index) in digitalServices"
-          :key="index"
-          class="service-item"
-          data-aos="fade-up"
-          :data-aos-delay="300 + index * 200"
-        >
-          <img :src="item.img" alt="" />
-          <div class="content-box">
-            <div class="title">{{ item.title }}</div>
-            <ul class="describe">
-              <li v-for="(list, index) in item.describe" :key="index">
-                {{ list }}
-              </li>
-            </ul>
+    <div class="product-bottom-container">
+      <div class="product-aside-nav">
+        <div class="level-1-list">
+          <div v-for="(item, index) in products" class="level-1-item" v-on:click="level1SelectIndex=index">
+            <div class="level-1-title" :class="{active:level1SelectIndex ==index}">
+              <div :class="{active:level1SelectIndex ==index}" class="level-1-text">{{ item.title }} </div>
+            </div>
+            <div class="level-2-list">
+              <div v-for="(item2, index2) in products[index].children" class="level-2-item" v-on:click="level2SelectIndex=index2">
+            <div class="level-2-title" :class="{active:level2SelectIndex == index2}">
+              <div :class="{active:level2SelectIndex == index2}" class="level-2-text">{{ item2.title }} </div>
+            </div>
+            </div>
           </div>
-        </div>
-      </div>
-    </div>
-    <div class="title-box" data-aos="fade-up">
-      {{ $t("product.productAdvantages") }}
-    </div>
-    <div class="product-advantages">
-      <div class="center-img">
-        <img src="@/assets/product/center_img.png" data-aos="zoom-in" alt="" />
-      </div>
-      <div class="product-advantages-card">
-        <div
-          v-for="(item, index) in productAdvantages"
-          :key="index"
-          class="product-advantages-item"
-          :data-aos="
-            isPC ? (index % 2 === 0 ? 'fade-right' : 'fade-left') : 'fade-up'
-          "
-        >
-          <img
-            v-if="index % 2 !== 0"
-            class="left-arrow"
-            src="@/assets/product/left_arrow.png"
-          />
-          <img
-            v-else
-            class="right-arrow"
-            src="@/assets/product/right_arrow.png"
-          />
-          <div class="left-box">
-            <ur-icon class="icon" :type="item.icon"></ur-icon>
-          </div>
-          <div class="right-box">
-            <div class="title">{{ item.title }}</div>
-            <div class="describe">{{ item.describe }}</div>
           </div>
         </div>
       </div>
@@ -74,95 +30,147 @@
 
 <script setup lang="ts">
 import { ref, onBeforeMount, onMounted, onBeforeUnmount } from "vue";
-import UrIcon from "@/components/icon";
-import productIcon1 from "assets/product/product_icon1.png";
-import productIcon2 from "assets/product/product_icon2.png";
-import productIcon3 from "assets/product/product_icon3.png";
-import productIcon4 from "assets/product/product_icon4.png";
-import productIcon5 from "assets/product/product_icon5.png";
 
-const { t } = useI18n();
+const products = ref([
+  {
+    key: '1',
+    title: '基础性能检测',
+    children: [
+      {
+        key: 'sub1-1',
+        title: '力学性能分析检测系列',
+      },
+      {
+        key: 'sub1-2',
+        title: '耐久性及其他性能分析检测系列',
+      },
+      {
+        key: 'sub1-3',
+        title: '化学性能分析检测系列',
+      },
+    ],
+  },
+  {
+    key: '2',
+    title: '材料制备与加工',
+    children: [
+      {
+        key: 'sub2-1',
+        title: '材料加工系列',
+        children: [
+          {
+            key: 'sub2-1-1',
+            title: '切磨抛',
+          },
+          {
+            key: 'sub2-1-2',
+            title: '破、研磨、压片',
+          },
+          {
+            key: 'sub2-1-3',
+            title: '高温烧结炉设备',
+          },
+        ]
+      },
+      {
+        key: 'sub2-2',
+        title: '材料成型系列',
+      },
+      {
+        key: 'sub3-3',
+        title: '材料分离系列',
+      },
+      {
+        key: 'sub3-4',
+        title: '材料混合系列',
+      },
+    ],
+  },
+  {
+    key: '3',
+    title: '环境控制设备',
+    children: [
+      {
+        key: 'sub3-1',
+        title: '恒控系统系列',
+        children: [
+          {
+            key: 'sub3-1-1',
+            title: '箱体',
+          },
+          {
+            key: 'sub3-1-2',
+            title: '机体',
+          },
+          {
+            key: 'sub3-1-3',
+            title: '锅炉',
+          },
+        ],
+      },
+      {
+        key: 'sub3-2',
+        title: '无菌环境系列',
+      },
+      {
+        key: 'sub3-3',
+        title: '气体环境系列',
+      },
+    ],
+  },
+  {
+    key: '4',
+    title: '微观分析检测',
+    children: [
+      {
+        key: 'sub4-1',
+        title: '显微镜系列',
+        children: [
+          {
+            key: 'sub4-1-1',
+            title: '光学显微镜',
+          },
+          {
+            key: 'sub4-1-2',
+            title: '金相显微镜',
+          },
+          {
+            key: 'sub4-1-3',
+            title: '电子显微镜',
+          },
+        ],
+      },
+      {
+        key: 'sub4-2',
+        title: '元素分析检测系列',
+      },
+      {
+        key: 'sub4-3',
+        title: '内部结构分析检测系列',
+        children: [
+          {
+            key: 'sub4-3-1',
+            title: 'CT、X光、核磁等成像相关',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    key: '5',
+    title: '科睿定制系列-定制化解决方案',
+  },
+]);
+
+
+const level1SelectIndex = ref<number|null>(null);
+
+const level2SelectIndex = ref<number|null>(null);
+
 const isPC = ref(true);
-const digitalServices = [
-  {
-    img: productIcon1,
-    title: t("product.productName1"),
-    describe: [
-      t("product.productDescribe1"),
-      t("product.productDescribe2"),
-      t("product.productDescribe3"),
-      t("product.productDescribe19"),
-    ],
-  },
-  {
-    img: productIcon2,
-    title: t("product.productName2"),
-    describe: [
-      t("product.productDescribe4"),
-      t("product.productDescribe5"),
-      t("product.productDescribe6"),
-      t("product.productDescribe7"),
-    ],
-  },
-  {
-    img: productIcon3,
-    title: t("product.productName3"),
-    describe: [
-      t("product.productDescribe8"),
-      t("product.productDescribe9"),
-      t("product.productDescribe10"),
-      t("product.productDescribe11"),
-    ],
-  },
-  {
-    img: productIcon4,
-    title: t("product.productName4"),
-    describe: [
-      t("product.productDescribe12"),
-      t("product.productDescribe13"),
-      t("product.productDescribe14"),
-    ],
-  },
-  {
-    img: productIcon5,
-    title: t("product.productName5"),
-    describe: [
-      t("product.productDescribe15"),
-      t("product.productDescribe16"),
-      t("product.productDescribe17"),
-      t("product.productDescribe18"),
-    ],
-  },
-];
 
-const productAdvantages = [
-  {
-    icon: "fresh-fruit",
-    title: t("product.advantages1"),
-    describe: t("product.advantagesDescribe1"),
-  },
-  {
-    icon: "configuration",
-    title: t("product.advantages2"),
-    describe: t("product.advantagesDescribe2"),
-  },
-  {
-    icon: "comprehensive",
-    title: t("product.advantages3"),
-    describe: t("product.advantagesDescribe3"),
-  },
-  {
-    icon: "association",
-    title: t("product.advantages4"),
-    describe: t("product.advantagesDescribe4"),
-  },
-];
 const updateImageSource = () => {
-  if (window.innerWidth <= 750) {
-    isPC.value = false;
-  } else {
-    isPC.value = true;
-  }
+
 };
 onBeforeMount(() => {
   updateImageSource();
@@ -172,336 +180,199 @@ onMounted(() => {
   window.addEventListener("resize", updateImageSource);
 });
 
-// Clean up event listener when the component is unmounted
+
 onBeforeUnmount(() => {
   window.removeEventListener("resize", updateImageSource);
 });
+
 </script>
 
 <style scoped lang="less">
 .product {
-  .banner {
-    position: relative;
-    width: 100%;
-    height: 428px;
-    background-image: url("../assets/product/banner.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background: #f7f7f7;
+    padding-bottom: 68px;
+  .common-title {
+    margin: auto;
+    max-width: 1400px;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    text-align: left;
-    box-sizing: border-box;
-  }
-  .product-banner {
-    img {
-      vertical-align: middle;
-      max-width: 100%;
-      width: auto;
-      height: auto;
-    }
-  }
-  .title-box {
-    font-weight: bold;
-    font-size: 36px;
-    color: #31353d;
-    text-align: center;
-    margin-top: 20px;
-    .icon {
-      position: relative;
-      top: 14px;
-      font-size: 73px;
-    }
-  }
-  .digital-services-box {
-    //min-height: 657px;
-    //padding-top: 30px;
-    padding: 30px 0 100px 0;
-    .tips {
-      font-weight: 400;
-      font-size: 15px;
-      color: #a0a0a0;
-      line-height: 44px;
-      text-align: center;
+
+    .common-title-text {
+      font-size: 32px;
+      font-family: Microsoft YaHei-Bold, Microsoft YaHei;
+      font-weight: bold;
+      color: #333333;
+      line-height: 32px;
     }
 
-    .service-grid {
-      height: 268px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(190px, 256px));
-      align-items: center;
+    .common-title-line {
+      display: flex;
       justify-content: center;
-      gap: 26px;
-      margin-top: 70px;
+      margin-top: 10px;
 
-      .service-item {
-        background: #ffffff;
-        min-height: 268px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-        padding: 12px;
-        border-radius: 20px;
-        border: 1px solid #e8e8e8;
-        overflow: hidden;
-        img {
-          width: 100px;
-          height: 100px;
-          transition:
-            margin 0.6s,
-            font-size 1s;
-        }
-        .content-box {
-          .title {
-            font-weight: 600;
-            font-size: 24px;
-            color: #1f1f1f;
-            line-height: 32px;
-            margin-bottom: 16px;
-            transition:
-              margin 0.6s,
-              font-size 1s;
-            text-align: center;
-          }
-          .describe {
-            font-weight: 400;
-            font-size: 16px;
-            line-height: 28px;
-            text-align: left;
-            display: none;
-          }
-        }
+      .common-title-line1 {
+        width: 32px;
+        height: 3px;
+        background: #94C33A;
       }
-      .service-item:hover {
-        background: #1B9EDB;
-        box-shadow: 0px 20px 30px rgba(204, 79, 0, 0.2);
-        img {
-          margin-top: -180px;
-          margin-bottom: 100px;
-        }
-        .title {
-          color: #fff;
-        }
-        .describe {
-          color: #fff;
-          display: inline-block;
-        }
-      }
-    }
-  }
-  .product-advantages {
-    vertical-align: middle;
-    max-width: 100%;
-    width: auto;
-    height: auto;
-    background: url(@/assets/product/product_advantages_bg.png) no-repeat;
-    background-size: 100%;
-    margin-top: 20px;
-    position: relative;
-    padding: 100px 0;
-    //display: flex;
-    //justify-content: center;
-    .center-img {
-      width: 30%;
-      position: absolute;
-      text-align: center;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      img {
-        vertical-align: middle;
-        max-width: 100%;
-        width: auto;
-        height: auto;
-        max-height: 350px;
-      }
-    }
-    .product-advantages-card {
-      margin: auto;
-      max-width: 1400px;
-      padding: 0 24px;
-      display: grid;
-      //grid-template-columns: repeat(2, minmax(120px, 372px));
-      grid-template-columns: repeat(2, minmax(120px, 30%));
-      justify-content: space-between;
-      gap: 80px;
-      position: relative;
-      top: 10px;
-      .product-advantages-item {
-        min-height: 148px;
-        background: url(@/assets/product/advantages_item.png) no-repeat;
-        background-size: 100%;
-        display: flex;
-        align-items: center;
-        box-shadow: 0px 0px 20px 1px rgba(186, 93, 0, 0.2);
-        border-radius: 4px;
-        padding-right: 12px;
-        position: relative;
-        .left-arrow {
-          position: absolute;
-          left: -100px;
-        }
-        .right-arrow {
-          position: absolute;
-          right: -100px;
-        }
-        .left-box {
-          width: 120px;
-          text-align: center;
-          .icon {
-            font-size: 48px;
-          }
-        }
-        .right-box {
-          .title {
-            font-weight: 600;
-            font-size: 24px;
-            color: #1f1f1f;
-            margin-top: 8px;
-            margin-bottom: 8px;
-          }
-          .describe {
-            font-weight: 400;
-            font-size: 16px;
-            color: #606367;
-            line-height: 24px;
-            margin-bottom: 8px;
-          }
-        }
-      }
-    }
-  }
-}
 
-@media screen and (max-width: 1410px) {
-  .product {
-    .digital-services-box {
-      .service-grid {
-        height: 548px;
+      .common-title-line2 {
+        width: 16px;
+        height: 3px;
+        background: #284186;
       }
     }
-  }
-}
 
-@media screen and (max-width: 841px) {
-  .product {
-    .digital-services-box {
-      .service-grid {
-        height: 838px;
-      }
-    }
   }
-}
-@media screen and (max-width: 750px) {
-  .product {
-    background: #f8f8f8;
-    .banner {
-      height: 57.067vw;
-      background-image: url("../assets/product/banner_h5.jpg");
-    }
-    .title-box {
-      font-size: 4.8vw;
-      line-height: 5.867vw;
-      margin-top: 0;
-    }
-    .digital-services-box {
-      padding: 0 3.2vw 13.333vw 3.2vw;
-      .title-box {
-        font-size: 4.8vw;
-        line-height: 5.867vw;
-        margin-top: 4.933vw;
-        .icon {
-          position: relative;
-          top: 14px;
-          font-size: 73px;
-        }
-      }
-      .tips {
-        font-size: 3.2vw;
-        line-height: 4.8vw;
-        margin-top: 3.2vw;
-      }
-      .service-grid {
-        margin-top: 5.867vw;
-        height: auto;
-        grid-template-columns: repeat(1, 100%);
-        gap: 2.133vw;
-        .service-item {
-          flex-direction: row;
-          min-height: 21.333vw;
-          background: #ffffff;
-          border: none;
-          border-radius: 2.667vw;
-          pointer-events: none;
-          .content-box {
-            width: 80%;
-            .title {
-              font-size: 4.267vw;
-              text-align: left;
-              margin-bottom: 0;
-              margin-left: 9.2vw;
+
+  .product-bottom-container {
+    
+    margin: auto;
+    max-width: 1400px;
+    margin-top: 64px;
+    display: flex;
+
+    .product-aside-nav {
+      align-self: flex-start;
+      width: 224px;
+      margin-right: 16.8px;
+      background: #fff;
+
+      .level-1-list {
+        .level-1-item {
+          cursor: pointer;
+          .level-1-title {
+            padding-left: 16px;
+            position: relative;
+
+            .level-1-text {
+              line-height: 22px;
+              font-size: 14px;
+              font-family: Microsoft YaHei-Regular, Microsoft YaHei;
+              font-weight: 400;
+              color: #333333;
+              padding: 8px 0;
+              padding-right: 16px;
             }
-            .describe {
-              font-size: 3.2vw;
-              color: #606367;
-              line-height: 4.8vw;
-              display: flex;
-              flex-wrap: wrap;
-              list-style-type: none;
-              li {
-                width: 50%;
+          }
+
+          .level-1-title.active {
+            background: #284186;
+            .level-1-text {
+              color: #fff;
+              font-weight: bold;
+            }
+          }
+
+          .level-1-title.active+.level-2-list {
+            display: block;
+          }
+
+          .level-2-list {
+            display: none;
+
+            .level-2-item {
+              cursor: pointer;
+              .level-2-title {
+                padding-left: 22.4px;
+                position: relative;
+
+                .level-2-icon {
+                  position: absolute;
+                  top: 9.6px;
+                  left: 0;
+                  width: 19.2px;
+                  height: 19.2px;
+                }
+
+                img {
+                  vertical-align: middle;
+                  border: 0;
+                  max-width: 100%;
+                  height: auto;
+                  display: block;
+                }
+
+                .level-2-icon-active {
+                  display: none;
+                }
+
+                .level-2-text {
+                  line-height: 33.4px;
+                  font-size: 13px;
+                  font-family: Microsoft YaHei-Regular, Microsoft YaHei;
+                  font-weight: 400;
+                  color: #666666;
+                }
+
+                a {
+                  color: #0062cc;
+                  text-decoration: none;
+                  background-color: transparent;
+                  display: block;
+                }
+              }
+
+              .level-2-title.active {
+                .level-2-icon-default {
+                  display: none;
+                }
+
+                .level-2-icon-active {
+                  display: inline-block;
+                }
+
+                .level-2-text {
+                  color: #284186;
+                }
+              }
+
+              .level-3-list {
+                display: block;
+
+                .level-3-item {
+                  min-height: 28.8px;
+                  padding: 8px 0;
+                  display: flex;
+                  align-items: center;
+
+                  .level-3-title {
+                    padding-left: 22.4px;
+                    padding-right: 12px;
+
+                    .level-3-text {
+                      line-height: 24px;
+                      font-size: 14.4px;
+                      font-family: Microsoft YaHei-Regular, Microsoft YaHei;
+                      font-weight: 400;
+                      color: #666666;
+                      display: -webkit-box;
+                      -webkit-box-orient: vertical;
+                      text-overflow: ellipsis;
+                      overflow: hidden;
+                      -webkit-line-clamp: 1;
+                      transition: 0.3s;
+                    }
+                  }
+                }
               }
             }
           }
         }
+        .level-1-item + .level-1-item {
+  border-top: 1px solid rgba(40, 65, 134, 0.1);
+}
       }
     }
-    .product-advantages {
-      background: transparent;
-      margin-top: 5.067vw;
-      padding-top: 0;
-      .center-img {
-        display: none;
-      }
-      .product-advantages-card {
-        grid-template-columns: repeat(1, 100%);
-        gap: 2.667vw;
-        padding: 0 3.2vw;
-        .product-advantages-item {
-          background-color: #ffffff;
-          height: 26.8vw;
-          box-shadow: none;
-          .left-arrow,
-          .right-arrow {
-            display: none;
-          }
-          .left-box {
-            width: 16.267vw;
-            text-align: center;
-            .icon {
-              font-size: 8vw;
-            }
-          }
-          .right-box {
-            width: 83%;
-            .title {
-              font-weight: 600;
-              font-size: 4.267vw;
-              color: #1f1f1f;
-              margin-bottom: 1.333vw;
-            }
-            .describe {
-              font-weight: 400;
-              font-size: 3.2vw;
-              color: #606367;
-              line-height: 4.8vw;
-            }
-          }
-        }
-      }
-    }
+  }
+}
+
+
+@media screen and (max-width: 750px) {
+  .product {
+    background: #f8f8f8;
+
   }
 }
 </style>

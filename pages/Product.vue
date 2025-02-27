@@ -10,17 +10,33 @@
     <div class="product-bottom-container">
       <div class="product-aside-nav">
         <div class="level-1-list">
-          <div v-for="(item, index) in products" class="level-1-item" v-on:click="level1SelectIndex=index">
-            <div class="level-1-title" :class="{active:level1SelectIndex ==index}">
-              <div :class="{active:level1SelectIndex ==index}" class="level-1-text">{{ item.title }} </div>
+          <div v-for="(item, index) in products" class="level-1-item" v-on:click="level1SelectAction(index)"
+            :key="index">
+            <div class="level-1-title" :class="{ active: level1SelectIndex == index }">
+              <div :class="{ active: level1SelectIndex == index }" class="level-1-text">{{ item.title }} </div>
             </div>
             <div class="level-2-list">
-              <div v-for="(item2, index2) in products[index].children" class="level-2-item" v-on:click="level2SelectIndex=index2">
-            <div class="level-2-title" :class="{active:level2SelectIndex == index2}">
-              <div :class="{active:level2SelectIndex == index2}" class="level-2-text">{{ item2.title }} </div>
+              <div v-for="(item2, index2) in item.children" class="level-2-item" :key="index2"
+                v-on:click="level2SelectAction(index2, $event)">
+                <div class="level-2-title" :class="{ active: level2SelectIndex == index2 }"
+                  :style="{ height: level1SelectIndex == index ? 'calc(' + (34) + 'px' + ')' : '0' }">
+                  <img class="level-2-icon level-2-icon-default" src="/assets/product/nav-arrow-right.png" alt="">
+                  <img class="level-2-icon level-2-icon-active" src="/assets/product/nav-arrow-bottom.png" alt="">
+                  <div :class="{ active: level2SelectIndex == index2 }" class="level-2-text">{{ item2.title }} </div>
+                </div>
+                <div class="level-3-list" style="display: block;">
+                  <div v-for="(item3, index3) in item2.children" class="level-3-item" :key="index3"
+                    v-on:click="level3SelectAction(index3, $event)">
+                    <div class="level-3-title" :class="{ active: level3SelectIndex == index3 }">
+                      <div class="level-3-text"
+                        :style="{ height: item3.key == String((level1SelectIndex || 0) + 1) && level2SelectIndex == index2 ? '34px' : '0' }">
+                        {{
+                          item3.title }}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            </div>
-          </div>
           </div>
         </div>
       </div>
@@ -37,15 +53,15 @@ const products = ref([
     title: '基础性能检测',
     children: [
       {
-        key: 'sub1-1',
+        key: '1',
         title: '力学性能分析检测系列',
       },
       {
-        key: 'sub1-2',
+        key: '1',
         title: '耐久性及其他性能分析检测系列',
       },
       {
-        key: 'sub1-3',
+        key: '1',
         title: '化学性能分析检测系列',
       },
     ],
@@ -55,33 +71,33 @@ const products = ref([
     title: '材料制备与加工',
     children: [
       {
-        key: 'sub2-1',
+        key: '2',
         title: '材料加工系列',
         children: [
           {
-            key: 'sub2-1-1',
+            key: '2',
             title: '切磨抛',
           },
           {
-            key: 'sub2-1-2',
+            key: '2',
             title: '破、研磨、压片',
           },
           {
-            key: 'sub2-1-3',
+            key: '2',
             title: '高温烧结炉设备',
           },
         ]
       },
       {
-        key: 'sub2-2',
+        key: '2',
         title: '材料成型系列',
       },
       {
-        key: 'sub3-3',
+        key: '2',
         title: '材料分离系列',
       },
       {
-        key: 'sub3-4',
+        key: '2',
         title: '材料混合系列',
       },
     ],
@@ -91,29 +107,29 @@ const products = ref([
     title: '环境控制设备',
     children: [
       {
-        key: 'sub3-1',
+        key: '3',
         title: '恒控系统系列',
         children: [
           {
-            key: 'sub3-1-1',
+            key: '3',
             title: '箱体',
           },
           {
-            key: 'sub3-1-2',
+            key: '3',
             title: '机体',
           },
           {
-            key: 'sub3-1-3',
+            key: '3',
             title: '锅炉',
           },
         ],
       },
       {
-        key: 'sub3-2',
+        key: '3',
         title: '无菌环境系列',
       },
       {
-        key: 'sub3-3',
+        key: '3',
         title: '气体环境系列',
       },
     ],
@@ -123,33 +139,33 @@ const products = ref([
     title: '微观分析检测',
     children: [
       {
-        key: 'sub4-1',
+        key: '4',
         title: '显微镜系列',
         children: [
           {
-            key: 'sub4-1-1',
+            key: '4',
             title: '光学显微镜',
           },
           {
-            key: 'sub4-1-2',
+            key: '4',
             title: '金相显微镜',
           },
           {
-            key: 'sub4-1-3',
+            key: '4',
             title: '电子显微镜',
           },
         ],
       },
       {
-        key: 'sub4-2',
+        key: '4',
         title: '元素分析检测系列',
       },
       {
-        key: 'sub4-3',
+        key: '4',
         title: '内部结构分析检测系列',
         children: [
           {
-            key: 'sub4-3-1',
+            key: '4',
             title: 'CT、X光、核磁等成像相关',
           },
         ],
@@ -163,9 +179,11 @@ const products = ref([
 ]);
 
 
-const level1SelectIndex = ref<number|null>(null);
+const level1SelectIndex = ref<number | null>(null);
 
-const level2SelectIndex = ref<number|null>(null);
+const level2SelectIndex = ref<number | null>(null);
+
+const level3SelectIndex = ref<number | null>(null);
 
 const isPC = ref(true);
 
@@ -185,12 +203,42 @@ onBeforeUnmount(() => {
   window.removeEventListener("resize", updateImageSource);
 });
 
+const level1SelectAction = (index: number) => {
+  if (level1SelectIndex.value == index) {
+    level1SelectIndex.value = null
+  } else {
+    level1SelectIndex.value = index
+  }
+  level2SelectIndex.value = null
+  level3SelectIndex.value = null
+}
+
+const level2SelectAction = (index: number, event: MouseEvent) => {
+  event.stopPropagation();
+  if (level2SelectIndex.value == index) {
+    level2SelectIndex.value = null
+  } else {
+    level2SelectIndex.value = index
+  }
+  level3SelectIndex.value = null
+}
+
+const level3SelectAction = (index: number, event: MouseEvent) => {
+  event.stopPropagation();
+  if (level3SelectIndex.value == index) {
+    level3SelectIndex.value = null
+  } else {
+    level3SelectIndex.value = index
+  }
+}
+
 </script>
 
 <style scoped lang="less">
 .product {
-    background: #f7f7f7;
-    padding-bottom: 68px;
+  background: #f7f7f7;
+  padding-bottom: 68px;
+
   .common-title {
     margin: auto;
     max-width: 1400px;
@@ -227,7 +275,7 @@ onBeforeUnmount(() => {
   }
 
   .product-bottom-container {
-    
+
     margin: auto;
     max-width: 1400px;
     margin-top: 64px;
@@ -242,6 +290,7 @@ onBeforeUnmount(() => {
       .level-1-list {
         .level-1-item {
           cursor: pointer;
+
           .level-1-title {
             padding-left: 16px;
             position: relative;
@@ -259,28 +308,32 @@ onBeforeUnmount(() => {
 
           .level-1-title.active {
             background: #284186;
+
             .level-1-text {
               color: #fff;
               font-weight: bold;
             }
           }
 
-          .level-1-title.active+.level-2-list {
-            display: block;
-          }
+          // .level-1-title.active+.level-2-list {
+          //   display: block;
+          // }
 
           .level-2-list {
-            display: none;
+            // display: none;
 
             .level-2-item {
               cursor: pointer;
+
               .level-2-title {
                 padding-left: 22.4px;
                 position: relative;
+                transition: all 0.3s;
+                overflow: hidden;
 
                 .level-2-icon {
                   position: absolute;
-                  top: 9.6px;
+                  top: 7.6px;
                   left: 0;
                   width: 19.2px;
                   height: 19.2px;
@@ -325,6 +378,7 @@ onBeforeUnmount(() => {
 
                 .level-2-text {
                   color: #284186;
+                  transition: all 0.6s;
                 }
               }
 
@@ -332,8 +386,6 @@ onBeforeUnmount(() => {
                 display: block;
 
                 .level-3-item {
-                  min-height: 28.8px;
-                  padding: 8px 0;
                   display: flex;
                   align-items: center;
 
@@ -352,7 +404,14 @@ onBeforeUnmount(() => {
                       text-overflow: ellipsis;
                       overflow: hidden;
                       -webkit-line-clamp: 1;
-                      transition: 0.3s;
+                      transition: all 0.3s;
+                    }
+                  }
+
+                  .level-3-title.active {
+
+                    .level-3-text {
+                      color: #284186;
                     }
                   }
                 }
@@ -360,9 +419,10 @@ onBeforeUnmount(() => {
             }
           }
         }
-        .level-1-item + .level-1-item {
-  border-top: 1px solid rgba(40, 65, 134, 0.1);
-}
+
+        .level-1-item+.level-1-item {
+          border-top: 1px solid rgba(40, 65, 134, 0.1);
+        }
       }
     }
   }

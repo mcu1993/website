@@ -179,11 +179,11 @@ const products = ref([
 ]);
 
 
-const level1SelectIndex = ref<number | null>(null);
+const level1SelectIndex = ref<number | null>(0);
 
-const level2SelectIndex = ref<number | null>(null);
+const level2SelectIndex = ref<number | null>(0);
 
-const level3SelectIndex = ref<number | null>(null);
+const level3SelectIndex = ref<number | null>(0);
 
 const isPC = ref(true);
 
@@ -241,6 +241,7 @@ const level3SelectAction = (index: number, event: MouseEvent) => {
 
   .common-title {
     margin: auto;
+    padding-top: 30px;
     max-width: 1400px;
     display: flex;
     flex-direction: column;

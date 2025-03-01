@@ -19,23 +19,39 @@
               <div v-for="(item2, index2) in item.children" class="level-2-item" :key="index2"
                 v-on:click="level2SelectAction(index2, $event)">
                 <div class="level-2-title" :class="{ active: level2SelectIndex == index2 }"
-                  :style="{ height: level1SelectIndex == index ? 'calc(' + (34) + 'px' + ')' : '0' }">
-                  <img class="level-2-icon level-2-icon-default" src="/assets/product/nav-arrow-right.png" alt="">
-                  <img class="level-2-icon level-2-icon-active" src="/assets/product/nav-arrow-bottom.png" alt="">
-                  <div :class="{ active: level2SelectIndex == index2 }" class="level-2-text">{{ item2.title }} </div>
+                  :style="{ height: level1SelectIndex == index ? 'calc(' + (isPC?34:4.533) + (isPC ?'px':'vw') + ')' : '0' }">
+                  <img v-if="item2.children != null" class="level-2-icon level-2-icon-default"
+                    src="/assets/product/nav-arrow-right.png" alt="">
+                  <img v-if="item2.children != null" class="level-2-icon level-2-icon-active"
+                    src="/assets/product/nav-arrow-bottom.png" alt="">
+                  <div :class="{ active: level2SelectIndex == index2 }" class="level-2-text" :style="{ height: level1SelectIndex == index ? 'calc(' + (isPC?34:4.533) + (isPC ?'px':'vw') + ')' : '0' }">{{ item2.title }} </div>
                 </div>
                 <div class="level-3-list" style="display: block;">
                   <div v-for="(item3, index3) in item2.children" class="level-3-item" :key="index3"
                     v-on:click="level3SelectAction(index3, $event)">
                     <div class="level-3-title" :class="{ active: level3SelectIndex == index3 }">
                       <div class="level-3-text"
-                        :style="{ height: item3.key == String((level1SelectIndex || 0) + 1) && level2SelectIndex == index2 ? '34px' : '0' }">
+                        :style="{ height: item3.key == String((level1SelectIndex || 0) + 1) && level2SelectIndex == index2 ? (isPC ? '34px' : '4.533vw') : '0' }">
                         {{
                           item3.title }}</div>
                     </div>
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-aside-list">
+        <div v-for="(index) in 0" class="product-item">
+          <span class="news">NEW</span>
+          <img class="product-img" src="@/assets/product/item1.webp" alt="" />
+          <div class="product-info">
+            <div class="product-title ellipsis-1">NDJ-S系列数显粘度计</div>
+            <div class="product-link" target="_blank">
+              <span>了解详情</span>
+              <img src="@/assets/product/list-arrow-right.png" alt="">
             </div>
           </div>
         </div>
@@ -188,7 +204,11 @@ const level3SelectIndex = ref<number | null>(0);
 const isPC = ref(true);
 
 const updateImageSource = () => {
-
+  if (window.innerWidth <= 750) {
+    isPC.value = false;
+  } else {
+    isPC.value = true;
+  }
 };
 onBeforeMount(() => {
   updateImageSource();
@@ -204,10 +224,10 @@ onBeforeUnmount(() => {
 });
 
 const level1SelectAction = (index: number) => {
-  if (level1SelectIndex.value == index) {
-    level1SelectIndex.value = null
-  } else {
+  if (level1SelectIndex.value != index) {
     level1SelectIndex.value = index
+  }else {
+    return;
   }
   level2SelectIndex.value = null
   level3SelectIndex.value = null
@@ -215,8 +235,12 @@ const level1SelectAction = (index: number) => {
 
 const level2SelectAction = (index: number, event: MouseEvent) => {
   event.stopPropagation();
+
   if (level2SelectIndex.value == index) {
-    level2SelectIndex.value = null
+    var children = products.value[level1SelectIndex.value!].children
+    if (children != null && children[level2SelectIndex.value].children != null) {
+      level2SelectIndex.value = null
+    }
   } else {
     level2SelectIndex.value = index
   }
@@ -225,9 +249,7 @@ const level2SelectAction = (index: number, event: MouseEvent) => {
 
 const level3SelectAction = (index: number, event: MouseEvent) => {
   event.stopPropagation();
-  if (level3SelectIndex.value == index) {
-    level3SelectIndex.value = null
-  } else {
+  if (level3SelectIndex.value != index) {
     level3SelectIndex.value = index
   }
 }
@@ -278,6 +300,7 @@ const level3SelectAction = (index: number, event: MouseEvent) => {
   .product-bottom-container {
 
     margin: auto;
+    padding: 20px;
     max-width: 1400px;
     margin-top: 64px;
     display: flex;
@@ -426,14 +449,365 @@ const level3SelectAction = (index: number, event: MouseEvent) => {
         }
       }
     }
+
+    .product-aside-list {
+      flex: 1;
+      display: flex;
+      flex-wrap: wrap;
+      row-gap: 17px;
+      column-gap: 17px;
+
+      .product-item {
+        background-color: white;
+        height: 300px;
+        position: relative;
+        cursor: pointer;
+        overflow: hidden;
+
+        .news {
+          position: absolute;
+          top: 10px;
+          left: 10px;
+          font-size: 14px;
+          color: #ccc;
+          font-weight: bold;
+        }
+
+        .product-img {
+          width: 100%;
+          height: 220px;
+          transition: 0.4s;
+        }
+
+        .product-info {
+          padding: 0 10px;
+          padding-top: 16px;
+
+          .product-title {
+            transition: 0.3s;
+            font-size: 16px;
+            font-family: Microsoft YaHei-Regular, Microsoft YaHei;
+            font-weight: 400;
+            color: #333333;
+            margin-bottom: 12.8px;
+            text-align: center;
+          }
+
+          .ellipsis-1 {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+          }
+
+          .product-link {
+            transition: 0.4s;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            height: 33.6px;
+            transition: 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 11.2px;
+            font-family: Microsoft YaHei-Regular, Microsoft YaHei;
+            font-weight: 400;
+            color: #666666;
+
+            img {
+              width: 14.4px;
+            }
+          }
+        }
+      }
+
+      .product-item:hover {
+        .product-img {
+          transform: scale(1.1);
+        }
+
+        .product-title {
+          color: #284186;
+          font-weight: 600;
+        }
+
+        .product-link {
+          color: #284186;
+        }
+      }
+    }
   }
 }
 
 
 @media screen and (max-width: 750px) {
   .product {
-    background: #f8f8f8;
+    padding-bottom: 9.067vw;
 
+    .common-title {
+      padding-top: 4vw;
+      max-width: 186.667vw;
+
+      .common-title-text {
+        font-size: 4.267vw;
+        line-height: 4.267vw;
+      }
+
+      .common-title-line {
+        margin-top: 1.333vw;
+
+        .common-title-line1 {
+          width: 4.267vw;
+          height: 0.4vw;
+        }
+
+        .common-title-line2 {
+          width: 2.133vw;
+          height: 0.4vw;
+        }
+      }
+
+    }
+
+    .product-bottom-container {
+
+      margin: auto;
+      padding: 2.667vw;
+      max-width: 186.667vw;
+      margin-top: 8.533vw;
+      display: flex;
+      flex-direction: column;
+      gap: 2.667vw;
+
+      .product-aside-nav {
+        align-self: center;
+        width: 100%;
+        margin-right: 0;
+        background: #fff;
+
+        .level-1-list {
+          .level-1-item {
+            cursor: pointer;
+
+            .level-1-title {
+              padding-left: 2.133vw;
+              position: relative;
+
+              .level-1-text {
+                line-height: 3.933vw;
+                font-size: 1.867vw;
+                font-family: Microsoft YaHei-Regular, Microsoft YaHei;
+                font-weight: 400;
+                color: #333333;
+                padding: 3.067vw 0;
+                padding-right: 2.133vw;
+              }
+            }
+
+            .level-1-title.active {
+              background: #284186;
+
+              .level-1-text {
+                color: #fff;
+                font-weight: bold;
+              }
+            }
+
+            // .level-1-title.active+.level-2-list {
+            //   display: block;
+            // }
+
+            .level-2-list {
+              // display: none;
+
+              .level-2-item {
+                cursor: pointer;
+
+                .level-2-title {
+                  padding-left: 2.987vw;
+                  position: relative;
+                  transition: all 0.3s;
+                  overflow: hidden;
+
+                  .level-2-icon {
+                    position: absolute;
+                    top: 1.013vw;
+                    left: 0;
+                    width: 2.56vw;
+                    height: 2.56vw;
+                  }
+
+                  img {
+                    vertical-align: middle;
+                    border: 0;
+                    max-width: 100%;
+                    height: auto;
+                    display: block;
+                  }
+
+                  .level-2-icon-active {
+                    display: none;
+                  }
+
+                  .level-2-text {
+                    line-height: 4.453vw;
+                    font-size: 1.733vw;
+                    font-family: Microsoft YaHei-Regular, Microsoft YaHei;
+                    font-weight: 400;
+                    color: #666666;
+                  }
+
+                  a {
+                    color: #0062cc;
+                    text-decoration: none;
+                    background-color: transparent;
+                    display: block;
+                  }
+                }
+
+                .level-2-title.active {
+                  .level-2-icon-default {
+                    display: none;
+                  }
+
+                  .level-2-icon-active {
+                    display: inline-block;
+                  }
+
+                  .level-2-text {
+                    color: #284186;
+                    transition: all 0.6s;
+                  }
+                }
+
+                .level-3-list {
+                  display: block;
+
+                  .level-3-item {
+                    display: flex;
+                    align-items: center;
+
+                    .level-3-title {
+                      padding-left: 2.987vw;
+                      padding-right: 1.6vw;
+
+                      .level-3-text {
+                        line-height: 3.2vw;
+                        font-size: 1.92vw;
+                        font-family: Microsoft YaHei-Regular, Microsoft YaHei;
+                        font-weight: 400;
+                        color: #666666;
+                        display: -webkit-box;
+                        -webkit-box-orient: vertical;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                        -webkit-line-clamp: 1;
+                        transition: all 0.3s;
+                      }
+                    }
+
+                    .level-3-title.active {
+
+                      .level-3-text {
+                        color: #284186;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+
+          .level-1-item+.level-1-item {
+            border-top: 1px solid rgba(40, 65, 134, 0.1);
+          }
+        }
+      }
+
+      .product-aside-list {
+        flex: 1;
+        display: flex;
+        flex-wrap: wrap;
+        row-gap: 2.267vw;
+        column-gap: 2.267vw;
+
+        .product-item {
+          background-color: white;
+          width: 100%;
+          height: auto;
+          position: relative;
+          cursor: pointer;
+          overflow: hidden;
+
+          .news {
+            position: absolute;
+            top: 1.333vw;
+            left: 1.333vw;
+            font-size: 1.867vw;
+            color: #ccc;
+            font-weight: bold;
+          }
+
+          .product-img {
+            width: 100%;
+            // height: 29.333vw;
+            transition: 0.4s;
+          }
+
+          .product-info {
+            padding: 0 1.333vw;
+            padding-top: 2.133vw;
+
+            .product-title {
+              transition: 0.3s;
+              font-size: 2.133vw;
+              font-family: Microsoft YaHei-Regular, Microsoft YaHei;
+              font-weight: 400;
+              color: #333333;
+              margin-bottom: 1.707vw;
+              text-align: center;
+            }
+
+            .ellipsis-1 {
+              overflow: hidden;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+            }
+
+            .product-link {
+              transition: 0.4s;
+              border-top: 1px solid rgba(0, 0, 0, 0.1);
+              height: 4.48vw;
+              transition: 0.3s;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              font-size: 1.493vw;
+              font-family: Microsoft YaHei-Regular, Microsoft YaHei;
+              font-weight: 400;
+              color: #666666;
+
+              img {
+                width: 1.92vw;
+              }
+            }
+          }
+        }
+
+        .product-item:hover {
+          .product-img {
+            transform: scale(1.1);
+          }
+
+          .product-title {
+            color: #284186;
+            font-weight: 600;
+          }
+
+          .product-link {
+            color: #284186;
+          }
+        }
+      }
+    }
   }
 }
 </style>

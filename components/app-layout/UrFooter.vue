@@ -80,50 +80,44 @@ const { t, locale } = useI18n();
 const activeKey = ref<string[]>([""]);
 const tabs = [
   {
-    name: t("header.productIntroduction"),
-    value: "Product",
+    name: "关于我们",
+    value: "About",
     children: [
-      { name: t("footer.describe6"), value: "Product" },
-      { name: t("footer.describe8"), value: "Product" },
+      { name: '企业简介', value: "About" },
     ],
   },
   {
-    name: t("header.solution"),
-    value: "Solution",
+    name: "服务支持",
+    value: "AfterSale",
     children: [
-      { name: t("header.solution1"), value: "FullScence" },
-      { name: t("header.solution2"), value: "Solution" },
-      { name: t("header.solution3"), value: "Engineering" },
-      { name: t("header.solution4"), value: "SandTrade" },
-      { name: t("header.solution5"), value: "FreshFruit" },
-      { name: t("header.solution6"), value: "CrossBorderDigital" },
+      { name: "销售平台", value: "AfterSale" },
+      { name: "售后服务", value: "AfterSale" },
+      { name: "资料下载", value: "AfterSale" },
+      { name: "网上留言", value: "AfterSale" },
     ],
   },
-  {
-    name: t("header.solution7"),
-    value: "financial",
-    children: [
-      { name: t("header.solution8"), value: "LogisticsFinance" },
-      { name: t("header.solution9"), value: "TradeFinance" },
+  { name: "人才发展", value: "Talent",
+  children: [
+      { name: "人才理念", value: "Talent" },
+      { name: "人才招聘", value: "TalentRecruitment" },
     ],
   },
-  { name: t("header.aboutUs"), value: "About" },
 ];
 
 const webTabs = computed(() => {
-  const excludes = ["financial", "About"];
+  const excludes = ["financial"];
   const data = tabs.filter((item) => !excludes.includes(item.value));
   return [
     ...data,
-    {
-      name: t("header.aboutUs"),
-      value: "About",
-      children: [
-        { name: t("footer.describe9"), value: "About" },
-        { name: t("footer.describe10"), value: "About" },
-        { name: t("footer.describe11"), value: "About" },
-      ],
-    },
+    // {
+    //   name: t("header.aboutUs"),
+    //   value: "About",
+    //   children: [
+    //     { name: t("footer.describe9"), value: "About" },
+    //     { name: t("footer.describe10"), value: "About" },
+    //     { name: t("footer.describe11"), value: "About" },
+    //   ],
+    // },
   ];
 });
 

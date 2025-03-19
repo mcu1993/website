@@ -19,7 +19,7 @@ export default {
     describe2: "电话：13923809364",
     describe3: "邮编：518000",
     describe4: "邮箱：tina_ycd02{'@'}163.com",
-    describe5: "网址：www.xxxx.com",
+    describe5: "网址：szcory.com",
     describe6: "产品中心",
     describe8: "产品优势",
     describe9: "企业介绍",

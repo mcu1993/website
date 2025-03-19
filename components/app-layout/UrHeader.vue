@@ -12,7 +12,7 @@
           <a-tab-pane v-for="(item,index) in tabs" :key="item.value">
             <template #tab>
               <span
-                v-if="(item.value !== 'Product' && item.value !== 'Talent')"
+                v-if="( item.value !== 'Talent')"
               >
                 {{ item.name }}
               </span>

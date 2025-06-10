@@ -297,9 +297,9 @@ const handleClick = (e) => {
   if (e.item.value === "Product" || e.item.value === "financial") return;
 
   if (route.path.indexOf(`/${locale.value}/`) === -1) {
-    router.replace(`${e.item.value}`);
+    router.push(`${locale.value}/${e.item.value}`);
   } else {
-    router.replace(`${e.item.value}`);
+    router.push({ name: `${e.item.value}___${locale.value}` });
   }
 }
 
@@ -329,23 +329,23 @@ const handleLanguage = (item) => {
 const handleTabsChange = (key: string) => {
 
   if (key === "index") {
-    router.push(`/`);
+    router.push({ name: `index___${locale.value}` });
     return;
   }
 
   if (route.path.indexOf(`/${locale.value}/`) === -1) {
-    router.push(`${key}`);
+    router.push(`${locale.value}/${key}`);
   } else {
-    router.push(`${key}`);
+    router.push({ name: `${key}___${locale.value}` });
   }
 };
 
 // 浮动子菜单点击
 const handleMenuClick = (key: string) => {
   if (route.path.indexOf(`/${locale.value}/`) === -1) {
-    router.push(`${key}`);
+    router.push(`${locale.value}/${key}`);
   } else {
-    router.push(`${key}`);
+    router.push({ name: `${key}___${locale.value}` });
   }
 };
 </script>

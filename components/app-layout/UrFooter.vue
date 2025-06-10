@@ -125,9 +125,9 @@ const router = useRouter();
 const route = useRoute();
 const handleMenuClick = (key: string) => {
   if (route.path.indexOf(`/${locale.value}/`) === -1) {
-    router.push(`${key}`);
+    router.push(`${locale.value}/${key}`);
   } else {
-    router.push(`${key}`);
+    router.push({ name: `${key}___${locale.value}` });
   }
 };
 </script>

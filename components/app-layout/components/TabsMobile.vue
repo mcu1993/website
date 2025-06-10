@@ -56,14 +56,14 @@ const { locale } = useI18n();
 const handleRouter = (key: string) => {
   innerVisible.value = false;
   if (key === "index") {
-    router.push({ name: `index___${locale.value}` });
+    router.push(`/`);
     return;
   }
 
   if (route.path.indexOf(`/${locale.value}/`) === -1) {
-    router.push(`${locale.value}/${key}`);
+    router.push(`${key}`);
   } else {
-    router.push({ name: `${key}___${locale.value}` });
+    router.push(`${key}`);
   }
 };
 </script>

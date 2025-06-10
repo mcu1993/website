@@ -19,10 +19,10 @@ export default defineNuxtConfig({
     { src: "@/plugins/antd-ui", mode: "client" }, // 引入插件
     { src: "@/plugins/aos", mode: "client" }, // 引入插件
   ],
-  i18n: {
-    // strategy: "prefix_and_default", // 添加路由前缀的方式
-    locales: ["zh", "en"], // 配置语种
-    vueI18n: "./i18n.config.ts", // 通过vueI18n配置
-  },
+  // i18n: {
+  //   // strategy: "prefix_and_default", // 添加路由前缀的方式
+  //   locales: ["zh", "en"], // 配置语种
+  //   vueI18n: "./i18n.config.ts", // 通过vueI18n配置
+  // },
   compatibilityDate: "2024-08-07",
 });

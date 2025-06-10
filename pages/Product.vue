@@ -10,7 +10,7 @@
     <div class="product-bottom-container">
       <div class="product-aside-nav">
         <div class="level-1-list">
-          <div v-for="(item, index) in products" class="level-1-item" v-on:click="level1SelectAction(index)"
+          <div v-for="(item, index) in catogorys" class="level-1-item" v-on:click="level1SelectAction(index)"
             :key="index">
             <div class="level-1-title" :class="{ active: level1SelectIndex == index }">
               <div :class="{ active: level1SelectIndex == index }" class="level-1-text">{{ item.title }} </div>
@@ -19,12 +19,14 @@
               <div v-for="(item2, index2) in item.children" class="level-2-item" :key="index2"
                 v-on:click="level2SelectAction(index2, $event)">
                 <div class="level-2-title" :class="{ active: level2SelectIndex == index2 }"
-                  :style="{ height: level1SelectIndex == index ? 'calc(' + (isPC?34:4.533) + (isPC ?'px':'vw') + ')' : '0' }">
+                  :style="{ height: level1SelectIndex == index ? 'calc(' + (isPC ? 34 : 4.533) + (isPC ? 'px' : 'vw') + ')' : '0' }">
                   <img v-if="item2.children != null" class="level-2-icon level-2-icon-default"
                     src="/assets/product/nav-arrow-right.png" alt="">
                   <img v-if="item2.children != null" class="level-2-icon level-2-icon-active"
                     src="/assets/product/nav-arrow-bottom.png" alt="">
-                  <div :class="{ active: level2SelectIndex == index2 }" class="level-2-text" :style="{ height: level1SelectIndex == index ? 'calc(' + (isPC?34:4.533) + (isPC ?'px':'vw') + ')' : '0' }">{{ item2.title }} </div>
+                  <div :class="{ active: level2SelectIndex == index2 }" class="level-2-text"
+                    :style="{ height: level1SelectIndex == index ? 'calc(' + (isPC ? 34 : 4.533) + (isPC ? 'px' : 'vw') + ')' : '0' }">
+                    {{ item2.title }} </div>
                 </div>
                 <div class="level-3-list" style="display: block;">
                   <div v-for="(item3, index3) in item2.children" class="level-3-item" :key="index3"
@@ -44,11 +46,11 @@
       </div>
 
       <div class="product-aside-list">
-        <div v-for="(index) in 0" class="product-item">
+        <div v-for="(item, index) in showProducts" class="product-item">
           <span class="news">NEW</span>
-          <img class="product-img" src="@/assets/product/item1.webp" alt="" />
+          <img class="product-img" :src="`${item.image}`" alt="" />
           <div class="product-info">
-            <div class="product-title ellipsis-1">NDJ-S系列数显粘度计</div>
+            <div class="product-title ellipsis-1">{{ item.name }}</div>
             <div class="product-link" target="_blank">
               <span>了解详情</span>
               <img src="@/assets/product/list-arrow-right.png" alt="">
@@ -63,21 +65,35 @@
 <script setup lang="ts">
 import { ref, onBeforeMount, onMounted, onBeforeUnmount } from "vue";
 
-const products = ref([
+import  img1 from "@/assets/product/product1.jpg"
+import  img2 from "@/assets/product/product2.jpg"
+import  img3 from "@/assets/product/product3.jpg"
+import  img4 from "@/assets/product/product4.jpg"
+import  img5 from "@/assets/product/product5.jpg"
+import  img6 from "@/assets/product/product6.jpg"
+import  img7 from "@/assets/product/product7.jpg"
+import  img8 from "@/assets/product/product8.jpg"
+import  img9 from "@/assets/product/product9.jpg"
+
+const catogorys = ref([
   {
     key: '1',
+    cid1: '100',
     title: '基础性能检测',
     children: [
       {
         key: '1',
+        cid2: '101',
         title: '力学性能分析检测系列',
       },
       {
         key: '1',
+        cid2: '102',
         title: '耐久性及其他性能分析检测系列',
       },
       {
         key: '1',
+        cid2: '103',
         title: '化学性能分析检测系列',
       },
     ],
@@ -88,64 +104,78 @@ const products = ref([
     children: [
       {
         key: '2',
+        cid2: '200',
         title: '材料加工系列',
         children: [
           {
             key: '2',
+            cid3: '201',
             title: '切磨抛',
           },
           {
             key: '2',
+            cid3: '202',
             title: '破、研磨、压片',
           },
           {
             key: '2',
+            cid3: '203',
             title: '高温烧结炉设备',
           },
         ]
       },
       {
         key: '2',
+        cid2: '204',
         title: '材料成型系列',
       },
       {
         key: '2',
+        cid2: '205',
         title: '材料分离系列',
       },
       {
         key: '2',
+        cid2: '206',
         title: '材料混合系列',
       },
     ],
   },
   {
     key: '3',
+    cid1: '300',
     title: '环境控制设备',
     children: [
       {
         key: '3',
+        cid2: '301',
         title: '恒控系统系列',
         children: [
           {
             key: '3',
+            cid3: '302',
             title: '箱体',
           },
           {
             key: '3',
+            cid3: '303',
             title: '机体',
           },
           {
             key: '3',
+            cid3: '304',
             title: '锅炉',
           },
         ],
       },
       {
         key: '3',
+        cid2: '305',
         title: '无菌环境系列',
       },
       {
         key: '3',
+        cid2: '306',
         title: '气体环境系列',
       },
     ],
@@ -153,35 +183,43 @@ const products = ref([
   {
     key: '4',
     title: '微观分析检测',
+    cid1: '400',
     children: [
       {
         key: '4',
+        cid2: '401',
         title: '显微镜系列',
         children: [
           {
             key: '4',
+            cid3: '402',
             title: '光学显微镜',
           },
           {
             key: '4',
+            cid3: '403',
             title: '金相显微镜',
           },
           {
             key: '4',
+            cid3: '404',
             title: '电子显微镜',
           },
         ],
       },
       {
         key: '4',
+        cid2: '405',
         title: '元素分析检测系列',
       },
       {
         key: '4',
+        cid2: '406',
         title: '内部结构分析检测系列',
         children: [
           {
             key: '4',
+            cid3: '407',
             title: 'CT、X光、核磁等成像相关',
           },
         ],
@@ -190,16 +228,116 @@ const products = ref([
   },
   {
     key: '5',
+    cid1: '400',
     title: '科睿定制系列-定制化解决方案',
   },
 ]);
 
 
+const products = ref([
+  {
+    cid1: "100",
+    cid2: "102",
+    cid3: null,
+    name: "混凝土（砂浆）3D打印系统(CR-3DPM)桌面级",
+    image: img1
+  },
+  {
+    cid1: "100",
+    cid2: "102",
+    cid3: null,
+    name: "混凝土（砂浆）3D打印系统(CR-3DPM)实验室级",
+    image: img2
+  },
+  {
+    cid1: "100",
+    cid2: "102",
+    cid3: null,
+    name: "表层混凝土透气系数测试仪（型号：CR-SCA）",
+    image: img3
+  },
+  {
+    cid1: "100",
+    cid2: "102",
+    cid3: null,
+    name: "表层混凝土透水系数测试仪（型号：CR-SCW）",
+    image: img3
+  },
+  {
+    cid1: "100",
+    cid2: "102",
+    cid3: null,
+    name: "表层混凝土透水系数测试仪（型号：CR-SCW）",
+    image: img4
+  },
+  {
+    cid1: "100",
+    cid2: "102",
+    cid3: null,
+    name: "表层混凝土透气透水系数测试仪（型号：CR-SCAW）",
+    image: img5
+  },
+  {
+    cid1: "100",
+    cid2: "102",
+    cid3: null,
+    name: "表层混凝土离子渗透性测试仪（型号：CR-SCI）",
+    image: img6
+  },
+  {
+    cid1: "100",
+    cid2: "102",
+    cid3: null,
+    name: "非接触混凝土波纹管收缩膨胀测定仪（型号：CR-BSC）",
+    image: img7
+  },
+  {
+    cid1: "100",
+    cid2: "102",
+    cid3: null,
+    name: "非接触混凝土（砂浆）波纹管收缩膨胀测定仪（型号：CR-BSCM）",
+    image: img8
+  },
+  {
+    cid1: "100",
+    cid2: "102",
+    cid3: null,
+    name: "非接触混凝土收缩膨胀测定仪（型号：CR-NES）",
+    image: img9
+  }
+]);
+
+const showProducts = computed(() => {
+  if (level3SelectIndex.value != null && level2SelectIndex.value != null && level1SelectIndex.value != null) {
+    const cid1 = catogorys.value[level1SelectIndex.value].cid1;
+    const cid2 = catogorys.value[level1SelectIndex.value].children[level2SelectIndex.value].cid2;
+    const cid3 = catogorys.value[level1SelectIndex.value].children[level2SelectIndex.value].children[level3SelectIndex.value].cid3;
+    return products.value.filter(product => {
+      return product.cid1 === cid1 &&
+        product.cid2 === cid2 &&
+        product.cid3 === cid3;
+    });
+  } else if (level2SelectIndex.value != null && level1SelectIndex.value != null) {
+    const cid1 = catogorys.value[level1SelectIndex.value].cid1;
+    const cid2 = catogorys.value[level1SelectIndex.value].children[level2SelectIndex.value].cid2;
+    
+    return products.value.filter(product => {
+      return product.cid1 === cid1 &&
+        product.cid2 === cid2;
+    });
+  } else {
+    const cid1 = catogorys.value[level1SelectIndex.value].cid1;
+    return products.value.filter(product => {
+      return product.cid1 === cid1;
+    });
+  }
+});
+
 const level1SelectIndex = ref<number | null>(0);
 
 const level2SelectIndex = ref<number | null>(0);
 
-const level3SelectIndex = ref<number | null>(0);
+const level3SelectIndex = ref<number | null>(null);
 
 const isPC = ref(true);
 
@@ -226,7 +364,7 @@ onBeforeUnmount(() => {
 const level1SelectAction = (index: number) => {
   if (level1SelectIndex.value != index) {
     level1SelectIndex.value = index
-  }else {
+  } else {
     return;
   }
   level2SelectIndex.value = null
@@ -237,13 +375,15 @@ const level2SelectAction = (index: number, event: MouseEvent) => {
   event.stopPropagation();
 
   if (level2SelectIndex.value == index) {
-    var children = products.value[level1SelectIndex.value!].children
+    var children = catogorys.value[level1SelectIndex.value!].children
     if (children != null && children[level2SelectIndex.value].children != null) {
       level2SelectIndex.value = null
     }
   } else {
     level2SelectIndex.value = index
   }
+  console.log('index1:', level1SelectIndex.value, 'index2:', level2SelectIndex.value);
+  catogorys.value[level1SelectIndex.value]
   level3SelectIndex.value = null
 }
 
@@ -253,6 +393,8 @@ const level3SelectAction = (index: number, event: MouseEvent) => {
     level3SelectIndex.value = index
   }
 }
+
+
 
 </script>
 
@@ -459,7 +601,8 @@ const level3SelectAction = (index: number, event: MouseEvent) => {
 
       .product-item {
         background-color: white;
-        height: 300px;
+        min-height: 300px;
+        width: 30%;
         position: relative;
         cursor: pointer;
         overflow: hidden;
@@ -485,18 +628,18 @@ const level3SelectAction = (index: number, event: MouseEvent) => {
 
           .product-title {
             transition: 0.3s;
-            font-size: 16px;
+            font-size: 12px;
             font-family: Microsoft YaHei-Regular, Microsoft YaHei;
             font-weight: 400;
             color: #333333;
             margin-bottom: 12.8px;
-            text-align: center;
+            text-align: left;
           }
 
           .ellipsis-1 {
             overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
+            // white-space: nowrap;
+            // text-overflow: ellipsis;
           }
 
           .product-link {
@@ -732,7 +875,7 @@ const level3SelectAction = (index: number, event: MouseEvent) => {
         .product-item {
           background-color: white;
           width: 100%;
-          height: auto;
+          min-height: auto;
           position: relative;
           cursor: pointer;
           overflow: hidden;

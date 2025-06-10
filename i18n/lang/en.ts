@@ -16,8 +16,8 @@ export default {
     contactUs: "Contact Us",
   },
   footer: {
-    describe2: "Tel: 13923809364",
-    describe3: "Postal Code: 518057",
+    describe2: "Tel: 0755-81735183",
+    describe3: "Postal Code: 518000",
     describe4: "Email: tina_ycd02{'@'}163.com",
     describe5: "Website: www. .com",
     describe6: "Product Center",

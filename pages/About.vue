@@ -21,7 +21,7 @@
       
 
     </div>
-    <!-- <div class="footer-grid-box">
+    <div class="footer-grid-box">
         <div class="footer-grid">
           <div
             v-for="(itm, index) in footer_list"
@@ -37,7 +37,7 @@
             </div>
           </div>
         </div>
-    </div> -->
+    </div>
   </div>
 </template>
 

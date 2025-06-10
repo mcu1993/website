@@ -594,15 +594,16 @@ const level3SelectAction = (index: number, event: MouseEvent) => {
 
     .product-aside-list {
       flex: 1;
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      // flex-wrap: wrap;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       row-gap: 17px;
       column-gap: 17px;
 
       .product-item {
         background-color: white;
         min-height: 300px;
-        width: 30%;
+        // width: 30%;
         position: relative;
         cursor: pointer;
         overflow: hidden;

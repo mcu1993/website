@@ -21,7 +21,7 @@
       
 
     </div>
-    <div class="footer-grid-box">
+    <!-- <div class="footer-grid-box">
         <div class="footer-grid">
           <div
             v-for="(itm, index) in footer_list"
@@ -30,7 +30,6 @@
             data-aos="fade-up"
             :data-aos-delay="300 + index * 200"
           >
-            <!-- <ur-icon class="footer-img" :type="itm.img.value"></ur-icon> -->
             <div class="content">
               <img class="img" :src="itm.img" style="margin-top: 20px;width: 80px; height: 80px;" alt="" srcset="" />
               <div>{{ itm.name }}</div>
@@ -38,7 +37,7 @@
             </div>
           </div>
         </div>
-      </div>
+    </div> -->
   </div>
 </template>
 
@@ -113,7 +112,7 @@ onBeforeUnmount(() => {
 
   .section {
     max-width: 1448px;
-    margin: auto;
+    margin: auto auto 30px auto;
     display: flex;
     flex-direction: column;
     align-items: center;

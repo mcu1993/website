@@ -10,6 +10,10 @@
 <script setup lang="ts">
 import UrFooter from "@/components/app-layout/UrFooter.vue";
 import UrHeader from "@/components/app-layout/UrHeader.vue";
+useHead({
+  title: '科睿高科',
+  // link: [{ rel: 'icon', type: 'image/x-icon', href: '/topode_202007/favicon.ico' }],
+})
 </script>
 <style scoped lang="less">
 .app {

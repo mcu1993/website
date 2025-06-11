@@ -23,7 +23,7 @@
     </div>
     <div class="footer-grid-box">
         <div class="footer-grid">
-          <!-- <div
+          <div
             v-for="(itm, index) in footer_list"
             :key="index"
             class="footer-box-item"
@@ -35,7 +35,7 @@
               <div>{{ itm.name }}</div>
               <div>{{ itm.srt }}</div>
             </div>
-          </div> -->
+          </div>
         </div>
     </div>
   </div>
@@ -147,7 +147,7 @@ onBeforeUnmount(() => {
       position: relative;
       max-width: 1448px;
       margin: 46px auto 111px auto;
-      height: 276px;
+      // height: 276px;
       .footer-grid {
         display: grid;
         margin: auto 24px;
@@ -228,7 +228,7 @@ onBeforeUnmount(() => {
           margin: auto 3.2vw;
           row-gap: 6.4vw;
           grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
-          height: 28.267vw;
+          // height: 28.267vw;
           .footer-box-item {
             border-radius: 2.667vw;
             min-height: 28.267vw;

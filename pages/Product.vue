@@ -46,6 +46,7 @@
       </div>
 
       <div class="product-aside-list">
+        <a-empty v-if="showProducts.length === 0" description="暂无数据"/>
         <div v-for="(item, index) in showProducts" class="product-item">
           <span class="news">NEW</span>
           <img class="product-img" :src="`${item.image}`" alt="" />
@@ -596,6 +597,8 @@ const level3SelectAction = (index: number, event: MouseEvent) => {
       flex: 1;
       display: grid;
       // flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       row-gap: 17px;
       column-gap: 17px;
@@ -615,6 +618,7 @@ const level3SelectAction = (index: number, event: MouseEvent) => {
           font-size: 14px;
           color: #ccc;
           font-weight: bold;
+          z-index: 9;
         }
 
         .product-img {
@@ -634,6 +638,7 @@ const level3SelectAction = (index: number, event: MouseEvent) => {
             font-weight: 400;
             color: #333333;
             margin-bottom: 12.8px;
+            min-height: 28px;
             text-align: left;
           }
 
@@ -664,13 +669,9 @@ const level3SelectAction = (index: number, event: MouseEvent) => {
       }
 
       .product-item:hover {
-        .product-img {
-          transform: scale(1.1);
-        }
-
+         box-shadow: 0 0 0 1px #284186;
         .product-title {
           color: #284186;
-          font-weight: 600;
         }
 
         .product-link {
@@ -907,6 +908,7 @@ const level3SelectAction = (index: number, event: MouseEvent) => {
               font-weight: 400;
               color: #333333;
               margin-bottom: 1.707vw;
+              min-height: 2.333vw;
               text-align: center;
             }
 
@@ -937,13 +939,13 @@ const level3SelectAction = (index: number, event: MouseEvent) => {
         }
 
         .product-item:hover {
-          .product-img {
-            transform: scale(1.1);
-          }
+          // .product-img {
+          //   transform: scale(1.1);
+          // }
 
           .product-title {
             color: #284186;
-            font-weight: 600;
+            // font-weight: 600;
           }
 
           .product-link {

@@ -65,16 +65,24 @@
 
 <script setup lang="ts">
 import { ref, onBeforeMount, onMounted, onBeforeUnmount } from "vue";
+const imageModules = import.meta.glob('@/assets/product/*.{jpg,jpeg,png,webp}', { eager: true });
 
-import  img1 from "@/assets/product/product1.jpg"
-import  img2 from "@/assets/product/product2.jpg"
-import  img3 from "@/assets/product/product3.jpg"
-import  img4 from "@/assets/product/product4.jpg"
-import  img5 from "@/assets/product/product5.jpg"
-import  img6 from "@/assets/product/product6.jpg"
-import  img7 from "@/assets/product/product7.jpg"
-import  img8 from "@/assets/product/product8.jpg"
-import  img9 from "@/assets/product/product9.jpg"
+// 提取并排序
+const sortedImages = Object.entries(imageModules)
+  .filter(([path, module]) => {
+    const fileName = path.split('/').pop();
+    const num = parseInt(fileName.match(/\d+/)?.[0])
+    return !isNaN(num)
+  })
+  .map(([path, module]) => {
+    // 从路径中提取文件名，然后提取数字
+    const fileName = path.split('/').pop();
+    const num = parseInt(fileName.match(/\d+/)?.[0]);
+    console.log(fileName,num)
+    return { num, image: module.default };
+  })
+  .sort((a, b) => a.num - b.num)
+  .map(item => item.image);
 
 const catogorys = ref([
   {
@@ -241,70 +249,336 @@ const products = ref([
     cid2: "102",
     cid3: null,
     name: "混凝土（砂浆）3D打印系统(CR-3DPM)桌面级",
-    image: img1
+    image: sortedImages[0]
   },
   {
     cid1: "100",
     cid2: "102",
     cid3: null,
     name: "混凝土（砂浆）3D打印系统(CR-3DPM)实验室级",
-    image: img2
+    image: sortedImages[1]
   },
   {
     cid1: "100",
     cid2: "102",
     cid3: null,
     name: "表层混凝土透气系数测试仪（型号：CR-SCA）",
-    image: img3
+    image: sortedImages[2]
   },
   {
     cid1: "100",
     cid2: "102",
     cid3: null,
     name: "表层混凝土透水系数测试仪（型号：CR-SCW）",
-    image: img3
+    image: sortedImages[3]
   },
   {
     cid1: "100",
     cid2: "102",
     cid3: null,
     name: "表层混凝土透水系数测试仪（型号：CR-SCW）",
-    image: img4
+    image: sortedImages[4]
   },
   {
     cid1: "100",
     cid2: "102",
     cid3: null,
     name: "表层混凝土透气透水系数测试仪（型号：CR-SCAW）",
-    image: img5
+    image: sortedImages[5]
   },
   {
     cid1: "100",
     cid2: "102",
     cid3: null,
     name: "表层混凝土离子渗透性测试仪（型号：CR-SCI）",
-    image: img6
+    image: sortedImages[6]
   },
   {
     cid1: "100",
     cid2: "102",
     cid3: null,
     name: "非接触混凝土波纹管收缩膨胀测定仪（型号：CR-BSC）",
-    image: img7
+    image: sortedImages[7]
   },
   {
     cid1: "100",
     cid2: "102",
     cid3: null,
     name: "非接触混凝土（砂浆）波纹管收缩膨胀测定仪（型号：CR-BSCM）",
-    image: img8
+    image: sortedImages[8]
   },
   {
     cid1: "100",
     cid2: "102",
     cid3: null,
     name: "非接触混凝土收缩膨胀测定仪（型号：CR-NES）",
-    image: img9
+    image: sortedImages[9]
+  },
+  {
+    cid1: "100",
+    cid2: "102",
+    cid3: null,
+    name: "混凝土氯离子电通量测定仪（型号：CR-RCP）",
+    image: sortedImages[10]
+  },
+  {
+    cid1: "100",
+    cid2: "102",
+    cid3: null,
+    name: "混凝土氯离子扩散系数测定仪（型号：CR-RCMN）",
+    image: sortedImages[11]
+  },
+  {
+    cid1: "100",
+    cid2: "102",
+    cid3: null,
+    name: "混凝土氯离子渗透性综合测定仪（型号：CR-RCMPN）",
+    image: sortedImages[12]
+  },
+  {
+    cid1: "100",
+    cid2: "102",
+    cid3: null,
+    name: "全自动混凝土真空饱水仪（型号：CR-BSY）",
+    image: sortedImages[13]
+  },
+  {
+    cid1: "100",
+    cid2: "102",
+    cid3: null,
+    name: "混凝土碳化试验箱（型号：CR-HTX）",
+    image: sortedImages[14]
+  },
+  {
+    cid1: "100",
+    cid2: "102",
+    cid3: null,
+    name: "混凝土硫酸盐干湿循环试验机（型号：CR-LSB）",
+    image: sortedImages[15]
+  },
+  {
+    cid1: "100",
+    cid2: "102",
+    cid3: null,
+    name: "慢速冻融试验机（型号：CR-HDM）",
+    image: sortedImages[16]
+  },
+  {
+    cid1: "100",
+    cid2: "102",
+    cid3: null,
+    name: "混凝土快速冻融试验机（型号：CR-HDK）",
+    image: sortedImages[17]
+  },
+  {
+    cid1: "100",
+    cid2: "102",
+    cid3: null,
+    name: "混凝土单面冻融试验机（型号：CR-HDD）",
+    image: sortedImages[18]
+  },
+  {
+    cid1: "100",
+    cid2: "102",
+    cid3: null,
+    name: "混凝土绝热温升测定仪（型号：CR-ATC）",
+    image: sortedImages[19]
+  },
+  {
+    cid1: "100",
+    cid2: "102",
+    cid3: null,
+    name: "混凝土热物理参数测定仪（型号：CR-TPC）",
+    image: sortedImages[20]
+  },
+  {
+    cid1: "100",
+    cid2: "102",
+    cid3: null,
+    name: "混凝土（砂浆）碱骨料反应试验箱（型号：CR-ARC）",
+    image: sortedImages[21]
+  },
+  {
+    cid1: "100",
+    cid2: "102",
+    cid3: null,
+    name: "混凝土徐变测定仪（型号：CR-XB）",
+    image: sortedImages[22]
+  },
+  {
+    cid1: "100",
+    cid2: "102",
+    cid3: null,
+    name: "混凝土早期抗裂试模（型号：CR-KL）",
+    image: sortedImages[23]
+  },
+  {
+    cid1: "100",
+    cid2: "102",
+    cid3: null,
+    name: "混凝土气体渗透测定仪（型号：CR-GPC）",
+    image: sortedImages[24]
+  },
+  {
+    cid1: "100",
+    cid2: "102",
+    cid3: null,
+    name: "混凝土结构耐久性综合环境模拟试验系统（型号：CR-CES）",
+    image: sortedImages[25]
+  },
+  {
+    cid1: "100",
+    cid2: "102",
+    cid3: null,
+    name: "混凝土硫酸盐（海水）应力耦合试验系统（型号：CR-LSC）",
+    image: sortedImages[26]
+  },
+  {
+    cid1: "100",
+    cid2: "102",
+    cid3: null,
+    name: "混凝土硫酸盐有压变温干湿循环试验系统（型号：CR-LIP）",
+    image: sortedImages[27]
+  },
+  {
+    cid1: "100",
+    cid2: "102",
+    cid3: null,
+    name: "混凝土多因素耦合侵蚀试验系统（型号：CR-SPE）",
+    image: sortedImages[28]
+  },
+  {
+    cid1: "100",
+    cid2: "102",
+    cid3: null,
+    name: "混凝土加速腐蚀箱（型号：CR-FSK）",
+    image: sortedImages[29]
+  },
+  {
+    cid1: "100",
+    cid2: "102",
+    cid3: null,
+    name: "钢筋混凝土电化学快速腐蚀测定仪（型号：CR-COR）",
+    image: sortedImages[30]
+  },
+  {
+    cid1: "100",
+    cid2: "102",
+    cid3: null,
+    name: "非接触砂浆波纹管收缩膨胀测定仪（型号：CR-BSM）",
+    image: sortedImages[31]
+  },
+  {
+    cid1: "100",
+    cid2: "102",
+    cid3: null,
+    name: "全自动立式收缩膨胀测定仪（型号：CR-VES）",
+    image: sortedImages[32]
+  },
+  {
+    cid1: "100",
+    cid2: "102",
+    cid3: null,
+    name: "激光收缩膨胀测定仪（型号：CR-LSE）",
+    image: sortedImages[33]
+  },
+  {
+    cid1: "100",
+    cid2: "102",
+    cid3: null,
+    name: "硬化混凝土气泡间距系数分析仪（型号：CR-457）",
+    image: sortedImages[34]
+  },
+  {
+    cid1: "100",
+    cid2: "102",
+    cid3: null,
+    name: "硬智能混凝土凝结时间测定仪（型号：CR-IST）",
+    image: sortedImages[35]
+  },
+  {
+    cid1: "100",
+    cid2: "102",
+    cid3: null,
+    name: "Marriott新型混凝土透水系数测定仪（型号：CR-CWM）",
+    image: sortedImages[36]
+  },
+  {
+    cid1: "100",
+    cid2: "102",
+    cid3: null,
+    name: "混凝土双卧轴试验用搅拌机（型号：CR-HJS60）",
+    image: sortedImages[37]
+  },
+  {
+    cid1: "100",
+    cid2: "102",
+    cid3: null,
+    name: "混凝土（水泥）标准养护箱（型号：CR-SCB）",
+    image: sortedImages[38]
+  },
+  {
+    cid1: "100",
+    cid2: "102",
+    cid3: null,
+    name: "可调式混凝土（水泥）养护箱（型号：CR-TCB）",
+    image: sortedImages[39]
+  },
+  {
+    cid1: "100",
+    cid2: "102",
+    cid3: null,
+    name: "混凝土氯离子含量快速测定仪（型号：CR-RCT）",
+    image: sortedImages[40]
+  },
+  {
+    cid1: "100",
+    cid2: "102",
+    cid3: null,
+    name: "氯离子自动电位滴定仪（型号：CR-APT）",
+    image: sortedImages[41]
+  },
+  {
+    cid1: "100",
+    cid2: "102",
+    cid3: null,
+    name: "混凝土碱含量快速测定仪（型号：CR-RAT）",
+    image: sortedImages[42]
+  },
+  {
+    cid1: "100",
+    cid2: "102",
+    cid3: null,
+    name: "新拌混凝土水胶（灰）比/单位用水量测定仪（型号：CR-WBR）",
+    image: sortedImages[43]
+  },
+  {
+    cid1: "100",
+    cid2: "102",
+    cid3: null,
+    name: "砂浆流变仪（型号：CR-LBM）",
+    image: sortedImages[44]
+  },
+  {
+    cid1: "100",
+    cid2: "102",
+    cid3: null,
+    name: "混凝土流变仪（型号：CR-LBC）",
+    image: sortedImages[45]
+  },
+  {
+    cid1: "100",
+    cid2: "102",
+    cid3: null,
+    name: "混凝土特定环境养护箱（型号：CR-SEC）",
+    image: sortedImages[46]
+  },
+  {
+    cid1: "100",
+    cid2: "102",
+    cid3: null,
+    name: "混凝土快速冻融试验机（型号：CR-HDK）",
+    image: sortedImages[47]
   }
 ]);
 
@@ -336,7 +610,7 @@ const showProducts = computed(() => {
 
 const level1SelectIndex = ref<number | null>(0);
 
-const level2SelectIndex = ref<number | null>(0);
+const level2SelectIndex = ref<number | null>(null);
 
 const level3SelectIndex = ref<number | null>(null);
 
@@ -355,6 +629,7 @@ onBeforeMount(() => {
 onMounted(() => {
   updateImageSource(); // Set the initial image
   window.addEventListener("resize", updateImageSource);
+  console.log("sortedImages",sortedImages)
 });
 
 

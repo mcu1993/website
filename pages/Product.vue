@@ -908,7 +908,7 @@ const level3SelectAction = (index: number, event: MouseEvent) => {
 
           .product-title {
             transition: 0.3s;
-            font-size: 12px;
+            font-size: 16px;
             font-family: Microsoft YaHei-Regular, Microsoft YaHei;
             font-weight: 400;
             color: #333333;

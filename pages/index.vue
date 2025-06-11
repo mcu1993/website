@@ -19,7 +19,7 @@
             </h2>
           </div>
         </div>
-        <div class="carousel-item">
+        <!-- <div class="carousel-item">
           <img :src="banner2Img" alt="" />
           <div
             v-if="currentIndex === 1"
@@ -54,7 +54,7 @@
               {{ $t("home.bannerDescribe6") }}
             </h2>
           </div>
-        </div>
+        </div> -->
       </a-carousel>
     </div>
 </template>
@@ -62,11 +62,8 @@
 <script setup lang="ts">
 import { ref, onMounted, onBeforeUnmount } from "vue";
 import banner1 from "@/assets/home/banner1.jpg";
-import banner1H5 from "@/assets/home/banner1_h5.jpg";
 import banner2 from "@/assets/home/banner2.jpg";
-import banner2H5 from "@/assets/home/banner2_h5.jpg";
 import banner3 from "@/assets/home/banner3.jpg";
-import banner3H5 from "@/assets/home/banner3_h5.jpg";
 import service from "@/assets/home/service.jpg";
 import serviceH5 from "@/assets/home/service_h5.png";
 import serviceEn from "@/assets/home/service_english.png";
@@ -89,16 +86,10 @@ const { t } = useI18n();
 
 const updateImageSource = () => {
   if (window.innerWidth <= 750) {
-    banner1Img.value = banner1H5;
-    banner2Img.value = banner2H5;
-    banner3Img.value = banner3H5;
     serviceImg.value = serviceH5;
     serviceEnImg.value = serviceEnH5;
   } else {
     serviceImg.value = service;
-    banner1Img.value = banner1;
-    banner2Img.value = banner2;
-    banner3Img.value = banner3;
     serviceEnImg.value = serviceEn;
   }
 };
@@ -143,13 +134,13 @@ onBeforeUnmount(() => {
          h1 {
            font-weight: 600;
            font-size: clamp(28px, 2.708vw, 52px);
-           color: #31353d;
+           color: white;
            line-height: clamp(28px, 2.76vw, 52px);
          }
          h2 {
            font-weight: 400;
            font-size: clamp(15px, 1.25vw, 24px);
-           color: #494949;
+           color: white;
            line-height: clamp(15px, 1.563vw, 30px);
          }
        }

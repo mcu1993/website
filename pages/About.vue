@@ -3,19 +3,19 @@
     <img class="img" src="../assets/about/banner.jpg" alt="" srcset="" />
   </div>
   <div class="body">
-    <div class="section">
-      <div class="section-title" data-aos="fade-up">
+    <div class="section" data-aos="fade-up" data-aos-delay="300">
+      <div class="section-title">
         企业简介
       </div>
        <!-- <div class="section-subtitle" data-aos="fade-up">
         {{ $t("about.describe1") }}
       </div> -->
-      <div class="section-content" style="margin-top: 32px;" data-aos="fade-up" data-aos-delay="300">
+      <div class="section-content" style="margin-top: 32px;">
         科睿高科（深圳）科技公司是一家从事前沿材料科学与工程研究与销售的公司，我们的产品涵盖材料制备合成、材料检测、材料环境控制等一系列实验室及户外产业线，我们的客户群体包括国内外高校、科研院所、检测机构、商混及外加剂生产企业等各个领域。</div>
-      <div class="section-content" data-aos="fade-up" data-aos-delay="300">
+      <div class="section-content">
         自公司成立以来，公司切实执行“产学研”发展方针，与各大高校及研究所深入合作，在浙江和广东都建立了规模化的生产和研发基地，不断在自我超越中迭代，以高水准品质，根据不同的客户需求，严格依照行业最高标准为客户提供定制服务，给予客户高可靠性解决方案。
       </div> 
-      <div class="section-content" data-aos="fade-up" data-aos-delay="300">
+      <div class="section-content">
         经过多年的发展，科睿品牌已具备较强的市场竞争力，真诚、实质、优质、专业是我们的口号，我们将继续坚持科技创新，专注为客户创造价值，聚焦创新产品与核心技术，围绕品牌发展的核心任务，全面深入推进科睿品牌产品竞争力的提升，为推动世界科学仪器振兴作出“科睿人”的贡献。
       </div> 
       
@@ -23,7 +23,7 @@
     </div>
     <div class="footer-grid-box">
         <div class="footer-grid">
-          <div
+          <!-- <div
             v-for="(itm, index) in footer_list"
             :key="index"
             class="footer-box-item"
@@ -35,7 +35,7 @@
               <div>{{ itm.name }}</div>
               <div>{{ itm.srt }}</div>
             </div>
-          </div>
+          </div> -->
         </div>
     </div>
   </div>
@@ -147,7 +147,7 @@ onBeforeUnmount(() => {
       position: relative;
       max-width: 1448px;
       margin: 46px auto 111px auto;
-
+      height: 276px;
       .footer-grid {
         display: grid;
         margin: auto 24px;
@@ -228,7 +228,7 @@ onBeforeUnmount(() => {
           margin: auto 3.2vw;
           row-gap: 6.4vw;
           grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
-
+          height: 28.267vw;
           .footer-box-item {
             border-radius: 2.667vw;
             min-height: 28.267vw;

@@ -27,13 +27,11 @@
             v-for="(itm, index) in footer_list"
             :key="index"
             class="footer-box-item"
-            data-aos="fade-up"
-            :data-aos-delay="300 + index * 200"
           >
             <div class="content">
-              <img class="img" :src="itm.img" style="margin-top: 20px;width: 80px; height: 80px;" alt="" srcset="" />
+              <!-- <img class="img" :src="itm.img" style="margin-top: 20px;width: 80px; height: 80px;" alt="" srcset="" />
               <div>{{ itm.name }}</div>
-              <div>{{ itm.srt }}</div>
+              <div>{{ itm.srt }}</div> -->
             </div>
           </div>
         </div>
@@ -157,7 +155,7 @@ onBeforeUnmount(() => {
 
         .footer-box-item {
           border-radius: 20px;
-          background-color: #f8f8f8;
+          // background-color: #f8f8f8;
           min-height: 276px;
           display: flex;
           flex-direction: column;
@@ -189,16 +187,16 @@ onBeforeUnmount(() => {
           }
         }
 
-        .footer-box-item:hover {
-          background-color: #1B9EDB;
-          box-shadow: 0px 20px 30px rgba(204, 79, 0, 0.2);
-          .footer-img {
-            color: #fff;
-          }
-          div {
-            color: #fff;
-          }
-        }
+        // .footer-box-item:hover {
+        //   background-color: #1B9EDB;
+        //   box-shadow: 0px 20px 30px rgba(204, 79, 0, 0.2);
+        //   .footer-img {
+        //     color: #fff;
+        //   }
+        //   div {
+        //     color: #fff;
+        //   }
+        // }
       }
     }
 }

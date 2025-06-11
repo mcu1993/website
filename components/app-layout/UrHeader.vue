@@ -374,9 +374,12 @@ const handleMenuClick = (key: string) => {
     max-width: 1920px;
 
     .logo-box {
-      width: 205px;
-      height: 48px;
+      width: 246px;
+      height: 58px;
       background-image:  url("../../assets/logo.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
     }
 
     .tabs-box {

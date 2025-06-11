@@ -1,7 +1,7 @@
 <template>
   <footer v-if="route.path!='/zh'" class="ur-footer">
     <div class="describe-container">
-      <div class="describe-gird" data-aos="fade-up">
+      <div class="describe-gird">
         <div class="describe-item-box">
           <!-- <div class="logo">
             <img src="@/assets/home/logo.png" alt="" />
@@ -16,8 +16,6 @@
         v-for="(item, index) in webTabs"
         :key="index"
         class="describe-gird"
-        data-aos="fade-up"
-        :data-aos-delay="300 + index * 100"
       >
         <div class="describe-item-box">
           <div class="describe-item title-color">{{ item.name }}</div>

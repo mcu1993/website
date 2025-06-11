@@ -678,6 +678,7 @@ const level3SelectAction = (index: number, event: MouseEvent) => {
 .product {
   background: #f7f7f7;
   padding-bottom: 68px;
+  min-height: 70vh;
 
   .common-title {
     margin: auto;

@@ -132,7 +132,7 @@ onBeforeUnmount(() => {
     }
 
     .section-content {
-      margin: 5px 24px auto 24px;
+      margin: 25px 64px auto 64px;
       text-indent: 2em;
       text-align: start;
       font-weight: 400;
